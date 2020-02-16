@@ -52,10 +52,529 @@
         header,
         nav,
         section,
+        figure,
+        figcaption,
         article,
         footer,
         aside {
             display: block;
+        }
+        
+        body {
+            background: url("background.jpg");
+            background-attachment: scroll;
+            scroll-behavior: smooth;
+            font-size: 100%;
+            transition: all 1.2s ease;
+            padding: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            /*font-family: helvetica, sans-serif;*/
+        }
+        
+        body::-webkit-scrollbar {
+            background: #ff5200;
+        }
+        
+        body::-webkit-scrollbar-track {
+            background: #ff5200
+        }
+        
+        body::-webkit-scrollbar-thumb {
+            background-color: white;
+            border: 1px solid grey;
+            border-radius: 1rem;
+        }
+        
+        #page {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-content: space-between;
+        }
+        
+        .underline {
+            height: 4px;
+            background: #ff5200;
+            width: 5rem;
+            margin: auto;
+            margin-top: 8px;
+        }
+        
+        #page header {
+            width: 100%;
+            position: relative;
+            display: block;
+            height: 25rem;
+            clear: both;
+        }
+        
+        header #header-bg {
+            width: 100%;
+            background: url("headerbg.gif");
+            background-size: cover;
+            clip-path: polygon(100% 0%, 100% 25%, 50% 85%, 0% 25%, 0% 0%);
+            -webkit-clip-path: polygon(100% 0%, 100% 25%, 50% 85%, 0% 25%, 0% 0%);
+            -ms-clip-path: polygon(100% 0%, 100% 25%, 50% 85%, 0% 25%, 0% 0%);
+            -moz-clip-path: polygon(100% 0%, 100% 25%, 50% 85%, 0% 25%, 0% 0%);
+            -o-clip-path: polygon(100% 0%, 100% 25%, 50% 85%, 0% 25%, 0% 0%);
+            height: 15rem;
+        }
+        
+        header #header-fg {
+            width: 100%;
+            display: flex;
+            padding: 1%;
+            color: whitesmoke;
+            align-items: flex-start;
+            justify-content: space-between;
+            display: -webkit-flex;
+            height: inherit;
+            background: rgba(255, 82, 0, 0.9);
+            clip-path: polygon(100% 0%, 100% 20%, 50% 80%, 0% 20%, 0% 0%);
+            -webkit-clip-path: polygon(100% 0%, 100% 20%, 50% 80%, 0% 20%, 0% 0%);
+            -ms-clip-path: polygon(100% 0%, 100% 20%, 50% 80%, 0% 20%, 0% 0%);
+            -moz-clip-path: polygon(100% 0%, 100% 20%, 50% 80%, 0% 20%, 0% 0%);
+            -o-clip-path: polygon(100% 0%, 100% 20%, 50% 80%, 0% 20%, 0% 0%);
+        }
+        
+        #header-fg .logo {
+            font-family: "courier new", courier;
+            padding: 1%;
+            color: white;
+            font-weight: 500;
+        }
+        
+        #header-fg a {
+            text-decoration: none;
+            color: whitesmoke;
+        }
+        
+        #header-fg .hamburger {
+            width: auto;
+            cursor: pointer;
+            position: relative;
+            margin: 0.3rem 4%;
+        }
+        
+        .hamburger span {
+            position: relative;
+            margin-top: 0.4rem;
+            display: block;
+            transition: transform 0.5s ease-in-out;
+            width: 2.3rem;
+            height: 4px;
+            border-radius: 0.5rem;
+            background: whitesmoke;
+        }
+        
+        .hamburger span:nth-child(2) {
+            transition: all 0.5s ease-in-out
+        }
+        
+        .hamburger.open {
+            position: relative;
+            margin: 0.3rem 4%;
+            cursor: pointer;
+            padding-top: 19px
+        }
+        
+        .hamburger.open span {
+            transition: transform 0.5s ease-in-out;
+            -webkit-transition: transform 0.5s ease-in-out;
+            -o-transition: transform 0.5s ease-in-out;
+            -moz-transition: transform 0.5s ease-in-out;
+            width: 2.1rem;
+            height: 4px;
+            margin: -15%;
+        }
+        
+        .hamburger.open span:first-child {
+            transform: rotate(360deg);
+        }
+        
+        .hamburger.open span:nth-child(2) {
+            transition: all 0.5s ease-in-out;
+            height: 0;
+            width: 0;
+        }
+        
+        .hamburger.open span:last-child {
+            transform: rotate(-360deg);
+        }
+        
+        #header #round-header-img {
+            width: 100%;
+            top: 7rem;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            text-align: center;
+            height: 8.5rem;
+        }
+        
+        #round-header-img img {
+            width: 8.5rem;
+            border: 6px outset white;
+            border-radius: 100% !important;
+            -webkit-border-radius: 100%;
+            -o-border-radius: 100%;
+        }
+        
+        #header #intro {
+            margin-top: 1rem;
+            font-family: arial, helvetica;
+            font-variant: small-caps;
+            font-size: 1.5rem;
+            font-weight: 550;
+            text-align: center;
+        }
+        
+        #header #call-to-action {
+            text-align: center;
+            width: 100%;
+            display: none;
+            margin-top: 1.5rem;
+            position: absolute;
+        }
+        
+        #call-to-action button {
+            outline: none;
+            color: whitesmoke;
+            width: 14rem;
+            margin: 0 auto;
+            font-weight: 800;
+            font-size: 1.2rem;
+            padding: 0.4rem;
+            background: #ff5200;
+            border: none;
+            border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -o-webkit-border-radius: 8px;
+            border-bottom-left-radius: 0.7rem;
+            -webkit-border-bottom-left-radius: 0.7rem;
+            -o-border-bottom-left-radius: 0.7rem;
+            border-bottom-right-radius: 0.7rem;
+            -webkit-border-bottom-right-radius: 0.7rem;
+            -o-border-bottom-right-radius: 0.7rem;
+            box-shadow: 0 5px #3b3a3a;
+            -webkit-box-shadow: 0 5px #3b3a3a;
+            -o-box-shadow: 0 5px #3b3a3a;
+            -moz-box-shadow: 0 5px #3b3a3a;
+        }
+        
+        #call-to-action button:active {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            margin-top: 5px;
+        }
+        
+        #header #drop-menu {
+            width: 15rem;
+            display: none;
+            position: absolute;
+            top: 3rem;
+            font-size: 1.2rem;
+            list-style-type: none;
+            background-color: #ff5200;
+            color: white;
+            right: 1rem;
+        }
+        
+        #drop-menu li {
+            display: block;
+            ;
+        }
+        
+        #drop-menu li a {
+            transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            color: whitesmoke;
+            display: block;
+            padding: 5% 0 5% 8%;
+            text-decoration: none;
+            width: 100%;
+        }
+        
+        #drop-menu li a:hover {
+            background-color: floralwhite;
+            color: black;
+            outline: 1px solid black;
+            padding-left: 3rem;
+        }
+        
+        #page svg {
+            width: 100%;
+            display: block;
+        }
+        
+        #page #page-content {
+            background: #f5f5f5;
+            width: 100%;
+        }
+        
+        #page-content .section>h2 {
+            font-family: walto;
+            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+        }
+        
+        #page-content .about {
+            width: 100%;
+            text-align: center;
+            padding-top: 3%;
+            display: block;
+        }
+        
+        #page-content #about-pic {
+            text-align: center;
+            width: 100%;
+            float: left;
+            margin-bottom: 5%;
+        }
+        
+        .about #about-pic img {
+            max-width: 300px;
+            width: 100%;
+            height: 20rem;
+            border: 6px double #ff5200;
+        }
+        
+        #page-content .about-text {
+            float: right;
+            width: 100%;
+            padding: 1%;
+            font-family: cambria;
+            word-wrap: break-word;
+        }
+        
+        #page-content .skills {
+            width: 100%;
+            overflow: auto;
+            display: block;
+            padding: 1%;
+            text-align: center;
+            margin-top: 35rem;
+        }
+        
+        .skills #skills-wrapper {
+            width: auto;
+            margin: auto;
+            text-align: center;
+        }
+        
+        #skills-wrapper .skill-bar {
+            height: 2rem;
+            margin-bottom: 3%;
+            width: 100%;
+            background: lightgray;
+        }
+        
+        .skill-name {
+            text-align: left;
+            font-size: 1.09rem;
+            font-variant: small-caps;
+            padding-left: 2%;
+            background: none;
+            height: inherit;
+            color: white;
+        }
+        
+        .skill-value {
+            transition: width 0.8s ease-in-out;
+            -webkit-transition: width 0.8s ease-in-out;
+            -moz-transition: width 0.8s ease-in-out;
+            -o-transition: width 0.8s ease-in-out;
+            animation: loadProgress 2s;
+            float: left;
+            background: #ff5200;
+            height: inherit;
+        }
+        
+        .skill-value.html {
+            width: 90%;
+        }
+        
+        .skill-value.css {
+            width: 83%;
+        }
+        
+        .skill-value.js {
+            width: 80%;
+        }
+        
+        .skill-value.jquery {
+            width: 67%;
+        }
+        
+        .skill-value.bootstrap {
+            width: 55%;
+        }
+        
+        .skill-value.ui {
+            width: 75%;
+        }
+        
+        .skill-value.illustration {
+            width: 55%;
+        }
+        
+        .skill-value.vector {
+            width: 45%;
+        }
+        
+        .skill-percent {
+            overflow: auto;
+            float: right;
+            padding-top: 1.5%;
+            font-size: 1.05rem;
+            font-variant: small-caps;
+            width: 10%;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        #page-content .projects {
+            width: 100%;
+            text-align: center;
+            margin-top: 3.5rem
+        }
+        
+        .projects article {
+            border: 1px solid black;
+            background: #ff5200;
+            margin-bottom: 5rem;
+        }
+        
+        .projects article .more-info {
+            position: absolute;
+            width: 0;
+            height: 100%;
+            overflow: hidden;
+            cursor: default;
+            z-index: 99999;
+            transition: all 0.6s ease-in-out;
+            background: #ff5200;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .more-info .close-btn {
+            text-align: right;
+            font-size: 1.6rem;
+            padding-right: 4%;
+            cursor: pointer;
+        }
+        
+        .more-info .languages {
+            color: black;
+            padding-top: 5%;
+        }
+        
+        .more-info span {
+            background: white;
+            padding: 1.5%;
+            font-variant: small-caps;
+            font-weight: 700;
+            border-left: 4px solid black;
+        }
+        
+        @media screen and (min-width: 1200px) {
+            .projects figcaption.project-name {
+                top: -3rem;
+                background: whitesmoke;
+                cursor: default;
+                text-align: center;
+                font-family: impact;
+                font-size: 1.8rem;
+            }
+            .projects article:hover figcaption.project-name {
+                top: 1.5rem;
+            }
+            .projects article:hover img {
+                opacity: 0.5;
+            }
+            .projects article:hover figcaption.learn-more {
+                bottom: 1.5rem
+            }
+        }
+        
+        .projects figure {
+            cursor: pointer;
+            transition: all 0.6s ease-in-out;
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .projects article figcaption {
+            position: absolute;
+            z-index: 99;
+            text-align: center;
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .projects figcaption.project-name {
+            top: 0.6rem;
+            opacity: 0.88;
+            background: whitesmoke;
+            cursor: default;
+            text-align: center;
+            font-family: impact;
+            font-size: 1.8rem;
+        }
+        
+        .projects figure img {
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .projects figure img:hover {
+            opacity: 0.2;
+        }
+        
+        .projects figcaption.learn-more {
+            top: 70%;
+            background: #ff5200: opacity: 0.94;
+        }
+        
+        .learn-more button {
+            width: auto;
+            padding: 0.4rem 3rem;
+            background: none;
+            border: 2px solid white;
+            font-weight: 700;
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .learn-more button:hover {
+            background-color: #ff5200;
+            color: whitesmoke;
+            border-color: #ff5200;
+        }
+        
+        .projects article a {
+            width: 100%;
+        }
+        
+        .projects article .view-project {
+            padding: 0.4rem 1.9rem;
+            transition: all 0.5s ease-in-out;
+            margin: 1% 0;
+            background: white;
+            font-weight: 700;
+            border: 1px solid #ff5200;
+        }
+        
+        article button.view-project:hover {
+            background-color: #ff5200;
+            border: 1px solid white;
+        }
+        
+        article .project-infos {
+            height: 10rem;
+            color: #ddd;
         }
     </style>
 </head>
@@ -65,7 +584,299 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+    <div id="page">
+        <header id="header">
+            <div id="header-bg" data-aos="zoom-in">
+                <div id="header-fg" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="logo lead">
+                        <a href="#"></a>
+                    </div>
+
+
+                    <div class="hamburger lead" onmouseover="showMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div id="round-header-img">
+                <img src="headerimg.jpg" alt="A Pic Of Me" data-aos="fade-up">
+            </div>
+            <div id="intro">
+                <div id="intro-line1"></div>
+                <div id="intro-line2"></div>
+            </div>
+            <div id="call-to-action">
+                <button>Hire Me</button>
+            </div>
+            <ul id="drop-menu">
+                <li><a href="#about">Who I Am</a></li>
+                <li><a href="#skills">My Skills</a></li>
+                <li><a href="#projects">My Projects</a></li>
+                <li><a href="#">My Blog</a></li>
+                <li><a href="#">Hire Me</a></li>
+            </ul>
+        </header>
+
+        <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="170" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="v-svg">
+            <!--<path d="M0 0 L50 100 L100 0 Z" stroke="white"></path>-->
+            <polyline points="0,0 50,60 100,0 100,120 0,120 0,0" stroke="white" fill="#f5f5f5" />
+        </svg>
+        <div id="page-content">
+            <div class="section about">
+                <h2>Who I Am
+                    <div class="underline"></div>
+                </h2>
+                <div id="about-pic">
+                    <img src="me.jpg">
+                </div>
+                <div class="about-text lead">
+                    My Names are sdn ds sdodnn dsn s sdnd dodsn dois sosd ind sdo dos sdon d odins dosin sosind sod sosd sdodsn dosn IAS SDOSNDIA
+                </div>
+            </div>
+            <!--ABOUT ME-->
+            <div class="section skills">
+                <h2>MY Skills
+                    <div class="underline"></div>
+                </h2>
+                <div id="skills-wrapper">
+                    <div class="skill-bar html">
+                        <div class="skill-value html aimated bounceInDown">
+                            <div class="skill-name lead">HTML</div>
+                        </div>
+                        <span class="skill-percent lead">90%</span>
+                    </div>
+                    <!--HTML-->
+                    <div class="skill-bar css">
+                        <div class="skill-value css">
+                            <div class="skill-name lead">CSS</div>
+                        </div>
+                        <span class="skill-percent lead">83%</span>
+                    </div>
+                    <!--CSS-->
+                    <div class="skill-bar js">
+                        <div class="skill-value js">
+                            <div class="skill-name lead">JAVASCRIPT</div>
+                        </div>
+                        <span class="skill-percent lead">80%</span>
+                    </div>
+                    <!--JS-->
+                    <div class="skill-bar bootstrap">
+                        <div class="skill-value bootstrap">
+                            <div class="skill-name lead">BOOTSTRAP</div>
+                        </div>
+                        <span class="skill-percent lead">55%</span>
+                    </div>
+                    <!--BOOTSTRAP-->
+                    <div class="skill-bar jquery">
+                        <div class="skill-value jquery">
+                            <div class="skill-name lead">JQUERY</div>
+                        </div>
+                        <span class="skill-percent lead">65%</span>
+                    </div>
+                    <!--JQUERY-->
+                    <div class="skill-bar ui">
+                        <div class="skill-value ui">
+                            <div class="skill-name lead">UI DESIGN</div>
+                        </div>
+                        <span class="skill-percent lead">75%</span>
+                    </div>
+                    <!--UI-->
+                    <div class="skill-bar illustration">
+                        <div class="skill-value illustration">
+                            <div class="skill-name lead">ILLUSTRATION</div>
+                        </div>
+                        <span class="skill-percent lead">55%</span>
+                    </div>
+                    <!--ILLUSTRATION-->
+                    <div class="skill-bar vector">
+                        <div class="skill-value vector">
+                            <div class="skill-name lead">VECTOR ART</div>
+                        </div>
+                        <span class="skill-percent lead">45%</span>
+                    </div>
+                    <!--VECTOR-->
+                </div>
+            </div>
+            <!--SKILLS-->
+            <div class="section projects">
+                <h2>MY Projects
+                    <div class="underline"></div>
+                </h2>
+                <!--PhoneBook-->
+                <article class="project phonebook" data-aos="flip-right">
+
+                    <figure>
+                        <div class="more-info">
+                            <div class="close-btn" onclick="this.parentNode.style.width = 0">X</div>
+                            <h5>Built With:</h5>
+                            <div class="languages">
+                                <span>HTML5</span> <span>CSS3</span> <span>JAVASCRIPT</span>
+                            </div>
+                        </div>
+                        <figcaption class="lead project-name"> PhoneBook Lite V1.0 </figcaption>
+                        <img src="projects-images/p1.jpg">
+                        <figcaption class="lead learn-more"><button onclick="document.querySelector('.more-info').style.width = '100%';">Learn More</button></figcaption>
+                    </figure>
+                    <div class="project-infos lead">
+                        PhoneBook Lite is a front-end based web app, full of enhanced features that makes managing your contacts and phone calls, a breeze!.
+                    </div>
+                    <a href="#">
+                        <button class="view-project">Visit Project</button>
+                    </a>
+                </article>
+
+                <!--Color Aid-->
+                <article class="project color-aid" data-aos="flip-right">
+
+                    <figure>
+                        <div class="more-info">
+                            <div class="close-btn" onclick="this.parentNode.style.width = 0">X</div>
+                            <h5>Built With:</h5>
+                            <div class="languages">
+                                <span>HTML5</span> <span>CSS3</span> <span>JAVASCRIPT</span>
+                            </div>
+                        </div>
+                        <figcaption class="lead project-name"> Color Aid V.1 </figcaption>
+                        <img src="projects-images/p1.jpg">
+                        <figcaption class="lead learn-more"><button onclick="document.querySelector('.color-aid .more-info').style.width = '100%';">Learn More</button></figcaption>
+                    </figure>
+                    <div class="project-infos lead">
+                        PhoneBook Lite is a front-end based web app, full of enhanced features that makes managing your contacts and phone calls, a breeze!.
+                    </div>
+                    <a href="#">
+                        <button class="view-project">Visit Project</button>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </div>
+
     <script async defer>
+        var i = 0;
+        var name = "print(Dev.Stan)";
+
+        function typeLogo() {
+            if (i < name.length) {
+                document.querySelector(".logo a").innerHTML += name[i];
+                i++;
+                setTimeout(typeLogo, 150)
+            }
+            if (i == name.length) {
+                setTimeout(function() {
+                    var logo = document.querySelector("#header-fg .logo a");
+                    logo.style.padding = "0 0 0 2%";
+                    logo.style.font = "2.1rem walto";
+                    logo.innerHTML = "<span style='font-family:curlz MT,curlz;font-weight:900'>&lt;/&gt;</span>Dev.Stan"
+                }, 1000)
+            }
+        }
+        setTimeout(typeLogo, 9000); /*Auto start typing*/
+
+        /*type intro-line1*/
+        var c = 0;
+        var intro1 = "hello!, i'm stanley.";
+
+        function typeIntro1() {
+            if (c < intro1.length) {
+                document.querySelector("#intro-line1").innerHTML += intro1[c];
+                c++;
+                setTimeout(typeIntro1, 100)
+            }
+        }
+        setTimeout(typeIntro1, 2000) /*Auto start typing*/
+            /*intro-line1 typing ends*/
+
+        /*type intro-line2*/
+        var x = 0;
+        var intro2 = "i'm a front-end web developer";
+
+        function typeIntro2() {
+            if (x < intro2.length) {
+                document.querySelector("#intro-line2").innerHTML += intro2[x];
+                x++;
+                setTimeout(typeIntro2, 100)
+            }
+        }
+        setTimeout(typeIntro2, 5000) /*Auto start typing*/
+            /*intro-line2 typing ends*/
+
+        /*Auto show Call-To-Action*/
+        setTimeout(function() {
+            $("#call-to-action").fadeIn(1500)
+        }, 8000)
+
+        /*Show dropdown menu*/
+        function showMenu() {
+            $(".hamburger").addClass("open");
+            $("#drop-menu").slideDown(700);
+            $("#drop-menu").on("mouseleave", function() {
+                $("#drop-menu").slideUp(700);
+                $(".hamburger").removeClass("open");
+            });
+            $("body").on("mouseenter", function() {
+                $("#drop-menu").slideUp(700);
+                $(".hamburger").removeClass("open");
+            });
+        }
+
+        /*Show dropdown menu*/
+        function showMenu() {
+            $(".hamburger").addClass("open");
+            $("#drop-menu").slideDown(700);
+            $("#drop-menu").on("mouseleave", function() {
+                $("#drop-menu").slideUp(700);
+                $(".hamburger").removeClass("open");
+            });
+            $("body").on("mouseenter", function() {
+                $("#drop-menu").slideUp(700);
+                $(".hamburger").removeClass("open");
+            });
+        }
+        /*Auto Remove header height*/
+        setTimeout(() => {
+            $("header").css("height", "auto")
+        }, 10000);
+
+        function showInfo(el) {
+            var article = el.parentElement.parentElement.parentElement;
+            article.querySelector("figure").style.width = "0px";
+            article.querySelector(".project-infos").style.height = "auto";
+
+        }
+
+        /**Dynamically Animate all title underlines **/
+        var allUnderlines = document.querySelectorAll("h2 .underline")
+        for (underline of allUnderlines) {
+            underline.parentNode.setAttribute("data-aos", "zoom-in");
+            underline.setAttribute("data-aos", "fade-right")
+        }
+
+        /**observer API to know when skills section gets into view**/
+        var observer = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting === true) {
+                $(".skill-value").css({
+                    animation: "loadProgress 2s ease-in-out"
+                })
+            } else if (entries[0].isIntersecting === false) {
+                $(".skill-value").css({
+                    animation: "none"
+                })
+            }
+        }, {
+            threshold: [1]
+        })
+        observer.observe(document.querySelector(".skill-value"));
+    </script>
+    <!--Initializing AOS.js library-->
+    <script>
+        AOS.init({
+            offset: 200,
+            duration: 1000,
+            easing: 'ease-in-out',
+            delay: 200,
+        });
     </script>
 </body>
 
