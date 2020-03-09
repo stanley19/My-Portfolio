@@ -27,6 +27,8 @@
     <!--<script src="waypoint/lib/jquery.waypoints.min.js"/>-->
 
     <style>
+        /**====================================================*/
+        
         * {
             margin: 0;
             padding: 0;
@@ -61,7 +63,8 @@
         }
         
         body {
-            background: url("background.jpg");
+            background: url("imgs/background.jpg");
+            background-position: 0% -120%;
             background-attachment: scroll;
             scroll-behavior: smooth;
             font-size: 100%;
@@ -140,9 +143,16 @@
         
         #header-fg .logo {
             font-family: "courier new", courier;
-            padding: 1%;
             color: white;
             font-weight: 500;
+            width: 50%;
+            padding-top: 7px;
+            margin-bottom: 10px;
+        }
+        
+        #header-fg .logo a img {
+            width: 100%;
+            height: 80%;
         }
         
         #header-fg a {
@@ -210,19 +220,19 @@
             justify-content: center;
             position: absolute;
             text-align: center;
-            height: 8.5rem;
         }
         
         #round-header-img img {
-            width: 8.5rem;
-            border: 6px outset white;
-            border-radius: 100% !important;
-            -webkit-border-radius: 100%;
-            -o-border-radius: 100%;
+            height: 8.8rem;
+            width: 8.8rem;
+            border: 6px double #ff5200;
+            border-radius: 100%;
+            border-top-left-radius: 0%;
+            border-top-right-radius: 0%;
         }
         
         #header #intro {
-            margin-top: 1rem;
+            margin-top: 7%;
             font-family: arial, helvetica;
             font-variant: small-caps;
             font-size: 1.5rem;
@@ -239,38 +249,26 @@
         }
         
         #call-to-action button {
+            transition: all 0.5s ease-in-out;
             outline: none;
-            color: whitesmoke;
+            color: black;
             width: 14rem;
             margin: 0 auto;
             font-weight: 800;
             font-size: 1.2rem;
             padding: 0.4rem;
-            background: #ff5200;
-            border: none;
-            border-radius: 8px;
-            -webkit-border-radius: 8px;
-            -o-webkit-border-radius: 8px;
-            border-bottom-left-radius: 0.7rem;
-            -webkit-border-bottom-left-radius: 0.7rem;
-            -o-border-bottom-left-radius: 0.7rem;
-            border-bottom-right-radius: 0.7rem;
-            -webkit-border-bottom-right-radius: 0.7rem;
-            -o-border-bottom-right-radius: 0.7rem;
-            box-shadow: 0 5px #3b3a3a;
-            -webkit-box-shadow: 0 5px #3b3a3a;
-            -o-box-shadow: 0 5px #3b3a3a;
-            -moz-box-shadow: 0 5px #3b3a3a;
+            background: white;
+            border: 5px double #ff5200;
         }
         
-        #call-to-action button:active {
-            -webkit-box-shadow: none;
-            box-shadow: none;
-            margin-top: 5px;
+        #call-to-action button:hover {
+            background: #ff5200;
+            color: white;
         }
         
         #header #drop-menu {
             width: 15rem;
+            position: absolute;
             display: none;
             position: absolute;
             top: 3rem;
@@ -283,7 +281,6 @@
         
         #drop-menu li {
             display: block;
-            ;
         }
         
         #drop-menu li a {
@@ -309,8 +306,12 @@
         }
         
         #page #page-content {
-            background: #f5f5f5;
+            background: #fff5f5;
             width: 100%;
+        }
+        
+        #page-content .section {
+            padding: 1.5%;
         }
         
         #page-content .section>h2 {
@@ -344,7 +345,7 @@
             float: right;
             width: 100%;
             padding: 1%;
-            font-family: cambria;
+            font-size: 1.2rem;
             word-wrap: break-word;
         }
         
@@ -424,9 +425,9 @@
         }
         
         .skill-percent {
-            overflow: auto;
+            overflow: hidden;
             float: right;
-            padding-top: 1.5%;
+            padding-top: 1%;
             font-size: 1.05rem;
             font-variant: small-caps;
             width: 10%;
@@ -441,18 +442,21 @@
         }
         
         .projects article {
-            border: 1px solid black;
+            box-shadow: 2px 2px 10px 1px black;
             background: #ff5200;
             margin-bottom: 5rem;
+            display: block;
+            align-items: center;
+            justify-content: space-evenly;
         }
         
         .projects article .more-info {
             position: absolute;
-            width: 0;
+            width: 0%;
             height: 100%;
             overflow: hidden;
             cursor: default;
-            z-index: 99999;
+            z-index: 999;
             transition: all 0.6s ease-in-out;
             background: #ff5200;
             opacity: 0.9;
@@ -463,24 +467,26 @@
             text-align: right;
             font-size: 1.6rem;
             padding-right: 4%;
+            margin-bottom: 10%;
             cursor: pointer;
         }
         
         .more-info .languages {
             color: black;
-            padding-top: 5%;
         }
         
         .more-info span {
-            background: white;
-            padding: 1.5%;
+            background: #ff5200;
+            line-height: 3;
+            padding: 1.9%;
             font-variant: small-caps;
             font-weight: 700;
-            border-left: 4px solid black;
+            border: 2px solid white;
         }
         
         @media screen and (min-width: 1200px) {
             .projects figcaption.project-name {
+                overflow: auto;
                 top: -3rem;
                 background: whitesmoke;
                 cursor: default;
@@ -502,11 +508,12 @@
         .projects figure {
             cursor: pointer;
             transition: all 0.6s ease-in-out;
-            position: relative;
             display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            outline: 1px solid black;
             justify-content: space-around;
             overflow: hidden;
-            text-align: center;
         }
         
         .projects article figcaption {
@@ -517,6 +524,7 @@
         }
         
         .projects figcaption.project-name {
+            overflow: auto;
             top: 0.6rem;
             opacity: 0.88;
             background: whitesmoke;
@@ -528,6 +536,8 @@
         
         .projects figure img {
             transition: all 0.5s ease-in-out;
+            height: 100%;
+            width: 100%;
         }
         
         .projects figure img:hover {
@@ -535,8 +545,9 @@
         }
         
         .projects figcaption.learn-more {
-            top: 70%;
-            background: #ff5200: opacity: 0.94;
+            bottom: 14rem;
+            background: #ff5200;
+            opacity: 0.94;
         }
         
         .learn-more button {
@@ -572,9 +583,353 @@
             border: 1px solid white;
         }
         
-        article .project-infos {
-            height: 10rem;
+        article .project-info {
+            height: auto;
             color: #ddd;
+            width: 100%;
+            position: relative;
+            z-index: 9999;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .design-projects {
+            padding: 2%;
+            display: block;
+            text-align: center;
+        }
+        
+        .design-projects h3 {
+            text-align: center;
+        }
+        
+        .design-projects .design-wrapper {
+            margin: 5% auto;
+            border: 6px double #ff5200;
+            display: inline-block;
+            width: 100%;
+            height: 300px;
+            box-shadow: 1px 1px 10px 2px black;
+        }
+        
+        .design-projects .design-wrapper img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #page-content .myBlog {
+            width: 100%;
+            overflow: auto;
+            display: block;
+            text-align: center;
+            margin-top: 5rem;
+        }
+        
+        .myBlog #button-wrap {
+            margin-top: 1rem;
+        }
+        
+        #button-wrap button {
+            transition: all 0.5s ease-in-out;
+            width: 10rem;
+            padding: 1%;
+            font-weight: 800;
+            background: inherit;
+            border: 2px solid #ff5200;
+            outline: none;
+        }
+        
+        #button-wrap button:hover {
+            background: #ff5200;
+            color: White;
+        }
+        
+        #page-content #contact {
+            background: #ff5200;
+            width: 100%;
+            text-align: center;
+            padding-top: 12rem;
+            color: white;
+            font-family: inherit;
+            clip-path: polygon(0% 0%, 50% 8rem, 100% 0%, 100% 100%, 0% 100%);
+        }
+        
+        #contact form {
+            width: 80%;
+            margin: auto;
+            margin-top: 8%;
+        }
+        
+        #contact form input {
+            transition: all 0.6s ease-in;
+            width: 100%;
+            padding: 0.9%;
+            margin-bottom: 2.5%;
+            border: none;
+            color: white;
+            font-family: arial;
+            outline-color: white;
+            background: #ff6a00;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+        }
+        
+        #contact form ::placeholder {
+            color: lightgrey;
+            font-family: candara
+        }
+        
+        #contact form ::-webkit-input-placeholder {
+            color: lightgrey;
+            font-family: candara
+        }
+        
+        #contact form ::-ms-input-placeholder {
+            color: lightgrey;
+            font-family: candara
+        }
+        
+        #contact form textarea {
+            transition: all 0.6s ease-in;
+            background: #ff6a00;
+            border: none;
+            color: white;
+            height: 7rem;
+            font-size: 1.2rem;
+            font-family: arial;
+            border-radius: 0px;
+            outline-color: white;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.7);
+        }
+        
+        #contact input,
+        #contact textarea:focus {
+            box-shadow: none;
+        }
+        
+        #contact form #success {
+            background: #18b918;
+            color: #c7f302;
+            font-size: 1rem;
+            height: auto;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+        }
+        
+        #contact #success span {
+            float: right;
+            color: white;
+            margin-right: 2%;
+            cursor: pointer;
+        }
+        
+        #contact form button[type='submit'] {
+            background: white;
+            outline: none;
+            border: none;
+            width: 8rem;
+            padding: 1%;
+            box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.7);
+            margin-top: 3%;
+        }
+        
+        #contact form button[type='submit']:active {
+            background: #ff5200;
+            color: white;
+            border: 1px solid white;
+            box-shadow: none;
+        }
+        
+        #contact #or-txt {
+            font-size: 1.2rem;
+            position: relative;
+            margin: 2rem auto;
+            width: 60px;
+            color: rgb(58, 54, 54);
+        }
+        
+        #contact #or-txt::before {
+            content: " ";
+            width: 4rem;
+            height: 4px;
+            background-color: rgb(58, 54, 54);
+            position: absolute;
+            top: 15px;
+            left: 90%;
+        }
+        
+        #contact #or-txt::after {
+            content: '';
+            width: 4rem;
+            height: 4px;
+            background-color: rgb(58, 54, 54);
+            position: absolute;
+            top: 15px;
+            right: 90%;
+        }
+        
+        #contact .contact-address {
+            font-size: 1.05rem;
+            font-family: 'Trebuchet MS';
+            margin-bottom: 1%;
+            letter-spacing: 1px;
+        }
+        
+        .contact-address a {
+            color: #f3e1e1;
+            text-decoration: none;
+        }
+        
+        .contact-address a:hover::before {
+            content: ">> ";
+            font-family: walto;
+        }
+        
+        #contact #socialize {
+            width: 100%;
+            margin-top: 4rem;
+        }
+        
+        #social-wrap {
+            margin-top: 1.5rem;
+        }
+        
+        #social-wrap .social {
+            display: inline-block;
+            width: auto;
+            margin: 2%;
+        }
+        
+        .social img {
+            width: 2.5rem;
+            transition: all 0.8s ease-in-out;
+            -webkit-transition: all 0.8s ease-in-out;
+            -o-transition: all 0.8s ease-in-out;
+            -ms-transition: all 0.8s ease-in-out;
+            -moz-transition: all 0.8s ease-in-out;
+        }
+        
+        .social img:hover {
+            transform: rotateZ(360deg);
+            -webkit-transform: rotateZ(360deg);
+            -o-transform: rotateZ(360deg);
+            -ms-transform: rotateZ(360deg);
+            -moz-transform: rotateZ(360deg);
+        }
+        /*===============================================================================================*/
+        
+        @media screen and (max-width: 320px) {
+            .design-projects .design-wrapper {
+                height: 200px;
+            }
+        }
+        
+        @media screen and (min-width: 560px) {
+            #header-fg .logo img {
+                min-width: 9rem;
+                max-width: 12rem;
+            }
+            #header-fg .hamburger span {
+                width: 2.7rem;
+                height: 4px;
+            }
+            #header #drop-menu {
+                width: 21rem;
+            }
+            #header #round-header-img img {
+                width: 10rem;
+                height: 10rem;
+            }
+            #header #intro {
+                font-size: 1.8rem;
+            }
+            #header #call-to-action button {
+                padding: 0.7rem;
+                font-size: 1.3;
+            }
+            .learn-more button {
+                padding: 0.7rem 4rem
+            }
+            .projects figcaption.project-name {
+                font-size: 2.2rem;
+            }
+            .design-projects {
+                padding: 0;
+                display: block;
+                text-align: center;
+            }
+            .design-projects .design-wrapper {
+                margin: 5% 1%;
+                border: 6px double #ff5200;
+                display: inline-block;
+                width: 400px;
+                height: 300px;
+            }
+            .design-projects .design-wrapper img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        @media screen and (min-width:730px) {
+            #page-content>.section {
+                padding: 4%;
+            }
+            #page-content #contact {
+                padding: 12rem 10% 0 10%;
+            }
+            #page-content #skills-wrapper {
+                width: 70%;
+            }
+        }
+        
+        @media screen and (min-width: 920px) {
+            #header-fg .logo {
+                margin: -8px 4rem;
+            }
+            #header-fg .logo a img {
+                height: 45px;
+                max-width: 15rem
+            }
+            #header-fg .hamburger span {
+                height: 5px;
+                width: 3rem;
+            }
+            #header #round-header-img img {
+                width: 11rem;
+                height: 12rem;
+            }
+            .projects article {
+                display: flex;
+                max-height: 18rem;
+                overflow: hidden;
+            }
+            .projects article figure {
+                margin: 0;
+            }
+            .project-info>div {
+                overflow: auto;
+            }
+            .project-info>a {
+                margin-top: 5%;
+            }
+            .project-info>a .view-project {
+                padding: 2% 8%;
+            }
+            .projects figcaption.learn-more {
+                bottom: 2rem;
+            }
+            .projects article .more-info {
+                max-width: 50%;
+                padding-top: 3rem;
+                height: 50rem;
+            }
+            .more-info span {
+                padding: 2%;
+            }
+            .more-info .close-btn {
+                margin-bottom: 5%;
+            }
         }
     </style>
 </head>
@@ -621,7 +976,7 @@
 
         <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="170" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="v-svg">
             <!--<path d="M0 0 L50 100 L100 0 Z" stroke="white"></path>-->
-            <polyline points="0,0 50,60 100,0 100,120 0,120 0,0" stroke="white" fill="#f5f5f5" />
+            <polyline points="0,0 50,60 100,0 100,120 0,120 0,0" stroke="white" fill="#fff5f5" />
         </svg>
         <div id="page-content">
             <div class="section about">
@@ -712,19 +1067,21 @@
                             <div class="close-btn" onclick="this.parentNode.style.width = 0">X</div>
                             <h5>Built With:</h5>
                             <div class="languages">
-                                <span>HTML5</span> <span>CSS3</span> <span>JAVASCRIPT</span>
+                                <span>HTML5</span> <span>CSS3</span> <span>JAVASCRIPT</span> <span>JQUERY</span> <span>BOOTSTRAP</span>
                             </div>
                         </div>
                         <figcaption class="lead project-name"> PhoneBook Lite V1.0 </figcaption>
                         <img src="projects-images/p1.jpg">
-                        <figcaption class="lead learn-more"><button onclick="document.querySelector('.more-info').style.width = '100%';">Learn More</button></figcaption>
+                        <figcaption class="lead learn-more"><button onclick="document.querySelector('.phonebook .more-info').style.width = '100%';">Learn More</button></figcaption>
                     </figure>
-                    <div class="project-infos lead">
-                        PhoneBook Lite is a front-end based web app, full of enhanced features that makes managing your contacts and phone calls, a breeze!.
-                    </div>
-                    <a href="#">
-                        <button class="view-project">Visit Project</button>
-                    </a>
+                    <section class="project-info">
+                        <div class="lead">
+                            PhoneBook Lite is a front-end based, features-infested web app that will give you rest, and takes care of your contacts and phone calls.
+                        </div>
+                        <a href="#">
+                            <button class="view-project">Visit Project</button>
+                        </a>
+                    </section>
                 </article>
 
                 <!--Color Aid-->
@@ -735,20 +1092,107 @@
                             <div class="close-btn" onclick="this.parentNode.style.width = 0">X</div>
                             <h5>Built With:</h5>
                             <div class="languages">
-                                <span>HTML5</span> <span>CSS3</span> <span>JAVASCRIPT</span>
+                                <span>HTML5</span> <span>CSS3</span> <span>JAVASCRIPT</span> <span>JQUERY</span> <span>BOOTSTRAP</span>
                             </div>
                         </div>
-                        <figcaption class="lead project-name"> Color Aid V.1 </figcaption>
-                        <img src="projects-images/p1.jpg">
-                        <figcaption class="lead learn-more"><button onclick="document.querySelector('.color-aid .more-info').style.width = '100%';">Learn More</button></figcaption>
+                        <figcaption class="lead project-name"> Color Aid V.1.0</figcaption>
+                        <img src="projects-images/p2.jpg">
+                        <figcaption class="lead learn-more"><button onclick="document.querySelector('.color-aid .more-info').style.width = '100%';">Learn
+                                More</button></figcaption>
                     </figure>
-                    <div class="project-infos lead">
-                        PhoneBook Lite is a front-end based web app, full of enhanced features that makes managing your contacts and phone calls, a breeze!.
-                    </div>
-                    <a href="#">
-                        <button class="view-project">Visit Project</button>
-                    </a>
+                    <section class="project-info">
+                        <div class="lead">
+                            PhoneBook Lite is a front-end based, features-infested web app that will give you rest, and takes care of your contacts and phone calls.
+                        </div>
+                        <a href="#">
+                            <button class="view-project">Visit Project</button>
+                        </a>
+                    </section>
                 </article>
+            </div>
+            <!-- Design projects-->
+            <div class="design-projects">
+                <h3>Design Projects
+                    <div class="underline"></div>
+                </h3><br/>
+                <div class="design-wrapper">
+                    <img src="imgs/1a95dae95ae1f6f1bf9a27173ff569c3.jpg">
+                </div>
+                <!--design 1-->
+                <div class="design-wrapper">
+                    <img src="imgs/290328.jpg">
+                </div>
+                <!--design 2-->
+                <div class="design-wrapper">
+                    <img src="imgs/initial.png">
+                </div>
+                <!--design 3-->
+                <div class="design-wrapper">
+                    <img src="imgs/scifi-android-robot-wallpaper-1600x900-12601_47.jpg">
+                </div>
+                <!--design 4-->
+            </div>
+            <!--Design Projects-->
+
+            <div class="section myBlog">
+                <h2>MY Blog
+                    <div class="underline"></div>
+                </h2>
+                <div class="lead">Be quite sure to checkout and subscribe to my blog for tutorials, opinions, walk-throughs, and videos on different programming languages, and other tech related topics.</div>
+                <div id="button-wrap">
+                    <a href="https://www.techruby.blogspot.com/"><button>VISIT BLOG</button></a>
+                </div>
+            </div>
+            <!--My Blog-->
+
+            <div id="contact">
+                <h2>CONTACT ME
+                    <div class="underline" style="background:white"></div>
+                </h2>
+                <form accept-charset="utf-8" autocomplete="on" id="contact-form" class="lead">
+                    <input type="text" minlength="2" required="required" name="name" placeholder="Name">
+                    <input type="text" minlength="2" required="required" name="email" placeholder="Email Address">
+                    <textarea class="form-control lead" placeholder="Your Message" type="text" name="message" required=""></textarea>
+                    <div id="success">Message Sent Successfully. Thanks <span onclick="this.parentElement.style.height = '0px'">X</span></div>
+                    <button type="submit">SUBMIT</button>
+                </form>
+                <div id="or-txt">OR</div>
+                <div class="contact-address"><a href="tel:+2348066413705"><i class="fas fa-phone  fa-flip-horizontal"></i>
+                        +2348066413705</a></div>
+                <div class="contact-address"><a href="mailto:stanleyugwu2018@gmail.com"><i class="fas fa-envelope"></i>
+                        stanleyugwu2018@gmail.com</a></div>
+
+                <div id="socialize">
+                    <h4 style="color: black">LET'S SOCIALIZE ON
+                        <div class="underline" style="background: black;"></div>
+                    </h4>
+                    <div id="social-wrap">
+                        <div class="social fb">
+                            <a href=""><img src="social icons/facebook.png" /></a>
+                        </div>
+                        <div class="social tw">
+                            <a href=""><img src="social icons/twitter.png" /></a>
+                        </div>
+                        <div class="social ln">
+                            <a href=""><img src="social icons/linkedin.png" /></a>
+                        </div>
+                        <div class="social pn">
+                            <a href=""><img src="social icons/pinterest.png" /></a>
+                        </div>
+                        <div class="social sk">
+                            <a href=""><img src="social icons/skype.png" /></a>
+                        </div>
+                        <div class="social in">
+                            <a href=""><img src="social icons/instagram.png" /></a>
+                        </div>
+                        <div class="social bl">
+                            <a href=""><img src="social icons/bloggr.png" /></a>
+                        </div>
+                        <div class="social em">
+                            <a href=""><img src="social icons/email.png" /></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -757,22 +1201,21 @@
         var i = 0;
         var name = "print(Dev.Stan)";
 
-        function typeLogo() {
+        function typeInitial() {
             if (i < name.length) {
                 document.querySelector(".logo a").innerHTML += name[i];
                 i++;
-                setTimeout(typeLogo, 150)
+                setTimeout(typeInitial, 150)
             }
             if (i == name.length) {
                 setTimeout(function() {
                     var logo = document.querySelector("#header-fg .logo a");
                     logo.style.padding = "0 0 0 2%";
-                    logo.style.font = "2.1rem walto";
-                    logo.innerHTML = "<span style='font-family:curlz MT,curlz;font-weight:900'>&lt;/&gt;</span>Dev.Stan"
+                    logo.innerHTML = "<img src='imgs/initial.png' id='initial'>";
                 }, 1000)
             }
         }
-        setTimeout(typeLogo, 9000); /*Auto start typing*/
+        setTimeout(typeInitial, 10000); /*Auto start typing*/
 
         /*type intro-line1*/
         var c = 0;
@@ -807,19 +1250,6 @@
             $("#call-to-action").fadeIn(1500)
         }, 8000)
 
-        /*Show dropdown menu*/
-        function showMenu() {
-            $(".hamburger").addClass("open");
-            $("#drop-menu").slideDown(700);
-            $("#drop-menu").on("mouseleave", function() {
-                $("#drop-menu").slideUp(700);
-                $(".hamburger").removeClass("open");
-            });
-            $("body").on("mouseenter", function() {
-                $("#drop-menu").slideUp(700);
-                $(".hamburger").removeClass("open");
-            });
-        }
 
         /*Show dropdown menu*/
         function showMenu() {
@@ -834,23 +1264,37 @@
                 $(".hamburger").removeClass("open");
             });
         }
+
         /*Auto Remove header height*/
         setTimeout(() => {
             $("header").css("height", "auto")
         }, 10000);
-
-        function showInfo(el) {
-            var article = el.parentElement.parentElement.parentElement;
-            article.querySelector("figure").style.width = "0px";
-            article.querySelector(".project-infos").style.height = "auto";
-
-        }
 
         /**Dynamically Animate all title underlines **/
         var allUnderlines = document.querySelectorAll("h2 .underline")
         for (underline of allUnderlines) {
             underline.parentNode.setAttribute("data-aos", "zoom-in");
             underline.setAttribute("data-aos", "fade-right")
+        }
+
+        /**Dynamically animate all design-projects**/
+        var allDesigns = document.querySelectorAll(".design-projects .design-wrapper");
+        for (design of allDesigns) {
+            design.setAttribute("data-aos", "fade-up")
+        }
+
+        /* add listener on input elements and tweak properties when value > 0 */
+        var inputs = document.querySelectorAll("#contact form textarea, #contact form input[type='text']");
+        for (input of inputs) {
+            input.onblur = function() {
+                if (this.value.length > 0) {
+                    this.style.background = 'white';
+                    this.style.color = 'black'
+                } else {
+                    this.style.background = '#ff6a00';
+                    this.style.color = 'white'
+                }
+            }
         }
 
         /**observer API to know when skills section gets into view**/
