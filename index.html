@@ -16,7 +16,6 @@
 
     <!--External Stylesheets-->
     <link rel="stylesheet" href="font-awesome/css/all.css" />
-    <link rel="stylesheet" href="mdi/materialdesignicons.css" />
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="aos/dist/aos.css" />
     <link rel="stylesheet" href="animate/animate.css" />
@@ -24,7 +23,6 @@
     <!--External Scripts-->
     <script src="aos/dist/aos.js"></script>
     <script src="jquery/jquery-3.4.1.js"></script>
-    <!--<script src="waypoint/lib/jquery.waypoints.min.js"/>-->
 
     <style>
         /**====================================================*/
@@ -62,6 +60,10 @@
             display: block;
         }
         
+        html {
+            scroll-behavior: smooth !important;
+        }
+        
         body {
             background: url("imgs/background.jpg");
             background-position: 0% -120%;
@@ -74,18 +76,34 @@
             /*font-family: helvetica, sans-serif;*/
         }
         
-        body::-webkit-scrollbar {
+        body.orange::-webkit-scrollbar {
             background: #ff5200;
         }
         
-        body::-webkit-scrollbar-track {
+        body.orange::-webkit-scrollbar-track {
             background: #ff5200
         }
         
-        body::-webkit-scrollbar-thumb {
+        body.orange::-webkit-scrollbar-thumb {
             background-color: white;
             border: 1px solid grey;
             border-radius: 1rem;
+        }
+        
+        body.dark {
+            background: black;
+        }
+        
+        body.dark::-webkit-scrollbar {
+            background: black;
+        }
+        
+        body.dark::-webkit-scrollbar-track {
+            background: black;
+        }
+        
+        body.dark::-webkit-scrollbar-thumb {
+            background-color: #09bf9e;
         }
         
         #page {
@@ -179,7 +197,9 @@
         }
         
         .hamburger span:nth-child(2) {
-            transition: all 0.5s ease-in-out
+            transition: all 0.5s ease-in-out;
+            width: 1.83rem;
+            margin-left: 0.4rem;
         }
         
         .hamburger.open {
@@ -205,8 +225,7 @@
         
         .hamburger.open span:nth-child(2) {
             transition: all 0.5s ease-in-out;
-            height: 0;
-            width: 0;
+            display: none;
         }
         
         .hamburger.open span:last-child {
@@ -283,6 +302,15 @@
             display: block;
         }
         
+        #drop-menu #dark-mode {
+            background: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4%;
+            color: #09bf9e;
+        }
+        
         #drop-menu li a {
             transition: all 0.5s ease;
             -webkit-transition: all 0.5s ease;
@@ -337,7 +365,7 @@
         .about #about-pic img {
             max-width: 300px;
             width: 100%;
-            height: 20rem;
+            height: 22rem;
             border: 6px double #ff5200;
         }
         
@@ -345,8 +373,11 @@
             float: right;
             width: 100%;
             padding: 1%;
-            font-size: 1.2rem;
+            font-size: 1.16rem;
+            text-align: justify;
+            line-height: 1.8;
             word-wrap: break-word;
+            margin-bottom: 5rem;
         }
         
         #page-content .skills {
@@ -355,7 +386,6 @@
             display: block;
             padding: 1%;
             text-align: center;
-            margin-top: 35rem;
         }
         
         .skills #skills-wrapper {
@@ -476,7 +506,7 @@
         }
         
         .more-info span {
-            background: #ff5200;
+            background: transparent;
             line-height: 3;
             padding: 1.9%;
             font-variant: small-caps;
@@ -655,7 +685,7 @@
         }
         
         #contact form {
-            width: 80%;
+            width: 95%;
             margin: auto;
             margin-top: 8%;
         }
@@ -727,14 +757,13 @@
             background: white;
             outline: none;
             border: none;
-            width: 8rem;
-            padding: 1%;
+            padding: 1.5% 9%;
             box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.7);
             margin-top: 3%;
         }
         
         #contact form button[type='submit']:active {
-            background: #ff5200;
+            background: transparent;
             color: white;
             border: 1px solid white;
             box-shadow: none;
@@ -769,7 +798,7 @@
         }
         
         #contact .contact-address {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-family: 'Trebuchet MS';
             margin-bottom: 1%;
             letter-spacing: 1px;
@@ -869,6 +898,12 @@
                 width: 100%;
                 height: 100%;
             }
+            #contact form {
+                width: 80%;
+            }
+            .hamburger span:nth-child(2) {
+                margin-left: 0;
+            }
         }
         
         @media screen and (min-width:730px) {
@@ -898,6 +933,19 @@
             #header #round-header-img img {
                 width: 11rem;
                 height: 12rem;
+            }
+            #page-content .about-text {
+                width: 62%;
+                font-size: 1.2rem;
+                padding-top: 0;
+            }
+            #page-content #about-pic {
+                width: 38%;
+            }
+            .about #about-pic img {
+                height: 25rem;
+                border: none;
+                box-shadow: 0 0 10px 3px black;
             }
             .projects article {
                 display: flex;
@@ -934,7 +982,7 @@
     </style>
 </head>
 
-<body>
+<body class="orange">
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -948,7 +996,7 @@
                     </div>
 
 
-                    <div class="hamburger lead" onmouseover="showMenu()">
+                    <div class="hamburger lead" onclick="toggleMenu()">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -956,42 +1004,45 @@
                 </div>
             </div>
             <div id="round-header-img">
-                <img src="headerimg.jpg" alt="A Pic Of Me" data-aos="fade-up">
+                <img src="myimg/me8.jpg" alt="A Pic Of Me" data-aos="fade-up">
             </div>
             <div id="intro">
                 <div id="intro-line1"></div>
                 <div id="intro-line2"></div>
             </div>
             <div id="call-to-action">
-                <button>Hire Me</button>
+                <a href="#or-txt"><button>Hire Me</button></a>
             </div>
             <ul id="drop-menu">
                 <li><a href="#about">Who I Am</a></li>
                 <li><a href="#skills">My Skills</a></li>
                 <li><a href="#projects">My Projects</a></li>
-                <li><a href="#">My Blog</a></li>
+                <li><a href="#myBlog">My Blog</a></li>
                 <li><a href="#">Hire Me</a></li>
+                <li id="dark-mode">Dark Mode &ensp;<i onclick='toggleDarkMode(this)' class="fas fa-toggle-off fa-2x"></i></li>
             </ul>
         </header>
 
         <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="170" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="v-svg">
             <!--<path d="M0 0 L50 100 L100 0 Z" stroke="white"></path>-->
-            <polyline points="0,0 50,60 100,0 100,120 0,120 0,0" stroke="white" fill="#fff5f5" />
+            <polyline id="line" points="0,0 50,60 100,0 100,120 0,120 0,0" stroke="white" fill="#fff5f5" />
         </svg>
         <div id="page-content">
-            <div class="section about">
+            <div class="section about" id="about">
                 <h2>Who I Am
                     <div class="underline"></div>
                 </h2>
                 <div id="about-pic">
-                    <img src="me.jpg">
+                    <img src="myimg/me1.jpg">
                 </div>
                 <div class="about-text lead">
-                    My Names are sdn ds sdodnn dsn s sdnd dodsn dois sosd ind sdo dos sdon d odins dosin sosind sod sosd sdodsn dosn IAS SDOSNDIA
+                    My Names are Ugwu Obiora Stanley, am a self-taught front-end web developer, blogger, and a visual/graphic designer from Enugu state, Nigeria. Am a college graduate of computer craft studies, I enjoy solving problems, especially when its related to programming,
+                    science, and technology at large. i consider myself tech-infested, i have great passion for programming, i believe in self study/development, which has given me a great acceleration in my journey to tech exploration with software and
+                    hardware. i enjoy studying science subjects, physics especially, because i believe the study of science is directly proportional to the exploration of technology.
                 </div>
             </div>
             <!--ABOUT ME-->
-            <div class="section skills">
+            <div class="section skills" id="skills">
                 <h2>MY Skills
                     <div class="underline"></div>
                 </h2>
@@ -1031,6 +1082,7 @@
                         <span class="skill-percent lead">65%</span>
                     </div>
                     <!--JQUERY-->
+
                     <div class="skill-bar ui">
                         <div class="skill-value ui">
                             <div class="skill-name lead">UI DESIGN</div>
@@ -1055,7 +1107,7 @@
                 </div>
             </div>
             <!--SKILLS-->
-            <div class="section projects">
+            <div class="section projects" id="projects">
                 <h2>MY Projects
                     <div class="underline"></div>
                 </h2>
@@ -1134,7 +1186,7 @@
             </div>
             <!--Design Projects-->
 
-            <div class="section myBlog">
+            <div class="section myBlog" id="myBlog">
                 <h2>MY Blog
                     <div class="underline"></div>
                 </h2>
@@ -1149,7 +1201,7 @@
                 <h2>CONTACT ME
                     <div class="underline" style="background:white"></div>
                 </h2>
-                <form accept-charset="utf-8" autocomplete="on" id="contact-form" class="lead">
+                <form accept-charset="utf-8" autocomplete="on" id="contact-form" class="lead" action="https://formspree.io/xgezaerg" method="POST" enctype="multipart/form-data">
                     <input type="text" minlength="2" required="required" name="name" placeholder="Name">
                     <input type="text" minlength="2" required="required" name="email" placeholder="Email Address">
                     <textarea class="form-control lead" placeholder="Your Message" type="text" name="message" required=""></textarea>
@@ -1251,19 +1303,12 @@
         }, 8000)
 
 
-        /*Show dropdown menu*/
-        function showMenu() {
-            $(".hamburger").addClass("open");
-            $("#drop-menu").slideDown(700);
-            $("#drop-menu").on("mouseleave", function() {
-                $("#drop-menu").slideUp(700);
-                $(".hamburger").removeClass("open");
-            });
-            $("body").on("mouseenter", function() {
-                $("#drop-menu").slideUp(700);
-                $(".hamburger").removeClass("open");
-            });
+        /*Show/hide dropdown menu*/
+        function toggleMenu() {
+            $(".hamburger").toggleClass("open");
+            $("#drop-menu").slideToggle(700);
         }
+        toggleMenu()
 
         /*Auto Remove header height*/
         setTimeout(() => {
@@ -1292,7 +1337,123 @@
                     this.style.color = 'black'
                 } else {
                     this.style.background = '#ff6a00';
-                    this.style.color = 'white'
+                    this.style.color = 'white';
+                }
+            }
+        }
+
+        function toggleDarkMode(el) {
+            $(el).toggleClass("fa-toggle-on fa-x2");
+            $("body").toggleClass("dark");
+            $("#header-fg").css({
+                "background": "#09bf9ecc"
+            });
+            $("#round-header-img img").css({
+                'border-color': "#09bf9e"
+            });
+            $("#intro, #drop-menu li a").css({
+                "color": "#09bf9e"
+            });
+            $("#drop-menu").css({
+                'background': 'black',
+                'border': '1px solid #09bf9e'
+            })
+            $("#drop-menu li").css({
+                'border-bottom': '1px solid grey'
+            });
+            $("#call-to-action button").css({
+                'border-color': '#09bf9e',
+                'background': 'transparent',
+                'color': 'lightgrey'
+            });
+            var ctaBtn = document.querySelector("#call-to-action button");
+            ctaBtn.onmouseenter = () => {
+                ctaBtn.style.background = '#09bf9e';
+                ctaBtn.style.color = 'black';
+            }
+            ctaBtn.onmouseleave = () => {
+                ctaBtn.style.background = 'black';
+                ctaBtn.style.color = 'lightgrey';
+            }
+            $("#line").css({
+                'fill': 'black',
+            })
+            $("#line").attr("points", '0,0 50,75 100,0 100')
+            $("#page-content").css("background", "black")
+            $(".section>h2").css('color', 'lightgrey')
+            $(".underline").css("background", "#09bf9e")
+            $(".about-text").css("color", "darkgrey")
+            $("#about-pic img").css({
+                "border-color": "#09bf9e",
+                'box-shadow': '0 0 9px 4px #09bf9e'
+            })
+            $(".skill-value").css('background', '#09bf9e')
+            $('.skill-name').css('color', 'black')
+            $('.projects .learn-more, .learn-more button').css({
+                'background': '#09bf9e',
+                'border': '1px solid #333'
+            })
+            $('.projects article').css({
+                'background': '#09bf9e',
+                'box-shadow': '0 0 9px 2px #09bf9e'
+            })
+            $('.projects .project-info').css('color', 'black')
+            $('.projects article .view-project').css('border-color', '#333')
+            var viewProjectBtn = document.querySelector(".projects article .view-project");
+            viewProjectBtn.onmouseenter = () => {
+                viewProjectBtn.style.background = '#09bf9e';
+            }
+            viewProjectBtn.onmouseleave = () => {
+                viewProjectBtn.style.background = 'white';
+            }
+            $('.design-projects>h3').css('color', 'white')
+            $('.design-projects .underline, .projects .more-info').css('background', '#09bf9e')
+            $('.design-wrapper').css({
+                'border-color': '#09bf9e',
+                'box-shadow': '1px 1px 10px 2px #09bf9e'
+            })
+            $('#myBlog div.lead').css('color', 'darkgrey')
+            $('#myBlog #button-wrap button').css({
+                'border-color': '#09bf9e',
+                'color': 'darkgrey'
+            })
+            var blogBtn = document.querySelector("#myBlog #button-wrap button");
+            blogBtn.onmouseenter = () => {
+                blogBtn.style.background = '#09bf9e';
+                blogBtn.style.color = 'black';
+            }
+            blogBtn.onmouseleave = () => {
+                blogBtn.style.background = 'transparent';
+                blogBtn.style.color = 'darkgrey'
+            }
+            $('#contact').css('background', '#09bf9e')
+            $('#contact h2 .underline, #contact form input, #contact textarea').css('background', 'black')
+            $('#contact #success').css('background', '#068406')
+            $('#contact #socialize h4 .underline').css('background', 'black')
+                /* add listener on input elements and tweak properties when value > 0 */
+            var inputs = document.querySelectorAll("#contact form textarea, #contact form input[type='text']");
+            for (input of inputs) {
+                input.onblur = function() {
+                    if (this.value.length > 0) {
+                        this.style.background = 'white';
+                        this.style.color = 'black'
+                    } else {
+                        this.style.background = '#09bf9e';
+                        this.style.color = 'white';
+                    }
+                }
+            }
+            /* add listener on input elements and tweak properties when value > 0 */
+            var inputs = document.querySelectorAll("#contact form textarea, #contact form input[type='text']");
+            for (input of inputs) {
+                input.onblur = function() {
+                    if (this.value.length > 0) {
+                        this.style.background = 'white';
+                        this.style.color = 'black'
+                    } else {
+                        this.style.background = 'black';
+                        this.style.color = 'white';
+                    }
                 }
             }
         }
