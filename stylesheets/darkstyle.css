@@ -1,0 +1,152 @@
+ body.dark {
+     background: black;
+ }
+ 
+ body.dark::-webkit-scrollbar {
+     background: black;
+ }
+ 
+ body.dark::-webkit-scrollbar-track {
+     background: black;
+ }
+ 
+ body.dark::-webkit-scrollbar-thumb {
+     background-color: #09bf9e;
+ }
+ 
+ body.dark #header-fg {
+     background: #09bf9ecc;
+ }
+ 
+ body.dark #round-header-img img {
+     border-color: #09bf9e;
+ }
+ 
+ body.dark #intro,
+ body.dark #drop-menu li a {
+     color: #09bf9e;
+ }
+ 
+ body.dark #drop-menu li {
+     border-bottom: 1px solid #666;
+ }
+ 
+ body.dark #header #drop-menu {
+     background: black;
+     border: 1px solid #09bf9e;
+ }
+ 
+ body.dark #drop-menu #dark-mode {
+     background: black;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 0 4%;
+     color: #09bf9e;
+ }
+ 
+ body.dark #call-to-action button {
+     border-color: #09bf9e;
+     background: black;
+     color: lightgrey;
+ }
+ 
+ body.dark #call-to-action button:hover {
+     background: #09bf9e;
+     color: black;
+ }
+ 
+ body.dark #page #page-content {
+     background: black;
+ }
+ 
+ body.dark .section>h2 {
+     color: #ccc;
+ }
+ 
+ body.dark .skill-name {
+     color: #111;
+ }
+ 
+ body.dark .section>h2 .underline {
+     background: #09bf9e;
+ }
+ 
+ body.dark #line {
+     fill: black
+ }
+ 
+ body.dark #about-pic img {
+     border-color: #09bf9e;
+     box-shadow: 0 0 8px 2px #09bf9e;
+ }
+ 
+ body.dark .about-text {
+     color: darkgray;
+ }
+ 
+ body.dark .skill-value {
+     background: #09bf9e;
+     color: black;
+ }
+ 
+ body.dark .projects .learn-more,
+ body.dark .learn-more button {
+     background: #09bf9e;
+     border: 1px solid #333;
+ }
+ 
+ body.dark .projects article {
+     background: #09bf9e;
+     box-shadow: 0 0 9px 2px #09bf9e;
+ }
+ 
+ body.dark .projects .project-info {
+     color: black;
+ }
+ 
+ body.dark .projects article .view-project {
+     border-color: #333;
+ }
+ 
+ body.dark .design-projects>h3 {
+     color: white;
+ }
+ 
+ body.dark .design-projects .underline,
+ body.dark .projects .more-info {
+     background: #09bf9e;
+ }
+ 
+ body.dark .design-wrapper {
+     border-color: #09bf9e;
+     box-shadow: 1px 1px 10px 2px #09bf9e;
+ }
+ 
+ body.dark #myBlog div.lead {
+     color: darkgrey
+ }
+ 
+ body.dark #myBlog #button-wrap button {
+     border-color: #09bf9e;
+     color: #ddd;
+     background: transparent;
+ }
+ 
+ body.dark #page-content #contact {
+     background: #09bf9e;
+ }
+ 
+ body.dark #contact>h2>.underline,
+ body.dark #contact form input,
+ body.dark #contact textarea {
+     background: black;
+ }
+ 
+ body.dark #contact #success {
+     background: #068406;
+ }
+ 
+ body.dark #contact #socialize h4 .underline {
+     background: black;
+ }

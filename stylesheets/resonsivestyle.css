@@ -1,0 +1,156 @@
+@media screen and (min-width: 1200px) {
+    .projects figcaption.project-name {
+        overflow: auto;
+        background: whitesmoke;
+        cursor: default;
+        text-align: center;
+        font-family: impact;
+        font-size: 1.8rem;
+    }
+    .projects article:hover figcaption.project-name {
+        top: 1.5rem;
+    }
+    .projects article:hover img {
+        opacity: 0.5;
+    }
+    .projects article:hover figcaption.learn-more {
+        bottom: 1.5rem
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .design-projects .design-wrapper {
+        height: 200px;
+    }
+}
+
+@media screen and (min-width: 560px) {
+    #header-fg .logo img {
+        min-width: 9rem;
+        max-width: 12rem;
+    }
+    #header-fg .hamburger span {
+        width: 2.7rem;
+        height: 4px;
+    }
+    #header #drop-menu {
+        width: 21rem;
+    }
+    #header #round-header-img img {
+        width: 10rem;
+        height: 10rem;
+    }
+    #header #intro {
+        font-size: 1.8rem;
+    }
+    #header #call-to-action button {
+        padding: 0.7rem;
+        font-size: 1.3;
+    }
+    .learn-more button {
+        padding: 0.7rem 4rem
+    }
+    .projects figcaption.project-name {
+        font-size: 2.2rem;
+    }
+    .design-projects {
+        padding: 0;
+        display: block;
+        text-align: center;
+    }
+    .design-projects .design-wrapper {
+        margin: 5% 1%;
+        border: 6px double #ff5200;
+        display: inline-block;
+        width: 400px;
+        height: 300px;
+    }
+    .design-projects .design-wrapper img {
+        width: 100%;
+        height: 100%;
+    }
+    #contact form {
+        width: 80%;
+    }
+    .hamburger span:nth-child(2) {
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width:730px) {
+    #page-content>.section {
+        padding: 4%;
+    }
+    #page-content #contact {
+        padding: 12rem 10% 0 10%;
+    }
+    #page-content #skills-wrapper {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 920px) {
+    #header-fg .logo {
+        margin: -8px 4rem;
+    }
+    #header-fg .logo a img {
+        height: 45px;
+        max-width: 15rem
+    }
+    #header-fg .hamburger span {
+        height: 5px;
+        width: 3rem;
+    }
+    #header #round-header-img img {
+        width: 11rem;
+        height: 12rem;
+    }
+    #page-content .about-text {
+        width: 62%;
+        font-size: 1.2rem;
+        padding-top: 0;
+    }
+    #page-content #about-pic {
+        width: 38%;
+    }
+    .about #about-pic img {
+        height: 25rem;
+        border: none;
+        box-shadow: 0 0 10px 3px black;
+    }
+    .projects article {
+        display: flex;
+        max-height: 18rem;
+        overflow: hidden;
+    }
+    .projects article figure {
+        margin: 0;
+    }
+    .project-info>div {
+        overflow: auto;
+    }
+    .project-info>a {
+        margin-top: 5%;
+    }
+    .project-info>a .view-project {
+        padding: 2% 8%;
+    }
+    .projects figcaption.learn-more {
+        bottom: 2rem;
+    }
+    .projects article .more-info {
+        max-width: 50%;
+        padding-top: 3rem;
+        height: 50rem;
+    }
+    .more-info span {
+        padding: 2%;
+    }
+    .more-info .close-btn {
+        margin-bottom: 5%;
+    }
+    #button-wrap button:hover {
+        background: #ff5200;
+        color: White;
+    }
+}

@@ -9,987 +9,39 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Stanley</title>
+    <title>Developer| Stanley</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#ff5200">
+    <meta id="theme" name="theme-color" content="#ff5200">
 
-    <!--External Stylesheets-->
+    <!--Main Stylesheet-->
+    <link rel="stylesheet" href="stylesheets/darkstyle.css" />
+    <link rel="stylesheet" href="stylesheets/responsivestyle.css" />
+    <link rel="stylesheet" href="pagestyle.css" />
+
+    <!--Helper Stylesheets-->
     <link rel="stylesheet" href="font-awesome/css/all.css" />
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="aos/dist/aos.css" />
     <link rel="stylesheet" href="animate/animate.css" />
 
-    <!--External Scripts-->
+    <!--Main Script-->
+    <script type="text/javascript" src="pagescript.js"></script>
+
+    <!--Helper Scripts-->
     <script src="aos/dist/aos.js"></script>
     <script src="jquery/jquery-3.4.1.js"></script>
 
-    <style>
-        /**====================================================*/
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        @keyframes loadProgress {
-            0% {
-                width: 0%;
-            }
-        }
-        
-        @font-face {
-            font-family: yummy;
-            src: url("fonts/Photograph Signature.ttf");
-        }
-        
-        @font-face {
-            font-family: walto;
-            src: url("fonts/Waltograph.regular.ttf");
-        }
-        
-        header,
-        nav,
-        section,
-        figure,
-        figcaption,
-        article,
-        footer,
-        aside {
-            display: block;
-        }
-        
-        html {
-            scroll-behavior: smooth !important;
-        }
-        
-        body {
-            background: url("imgs/background.jpg");
-            background-position: 0% -120%;
-            background-attachment: scroll;
-            scroll-behavior: smooth;
-            font-size: 100%;
-            transition: all 1.2s ease;
-            padding: 0;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            /*font-family: helvetica, sans-serif;*/
-        }
-        
-        body.orange::-webkit-scrollbar {
-            background: #ff5200;
-        }
-        
-        body.orange::-webkit-scrollbar-track {
-            background: #ff5200
-        }
-        
-        body.orange::-webkit-scrollbar-thumb {
-            background-color: white;
-            border: 1px solid grey;
-            border-radius: 1rem;
-        }
-        
-        body.dark {
-            background: black;
-        }
-        
-        body.dark::-webkit-scrollbar {
-            background: black;
-        }
-        
-        body.dark::-webkit-scrollbar-track {
-            background: black;
-        }
-        
-        body.dark::-webkit-scrollbar-thumb {
-            background-color: #09bf9e;
-        }
-        
-        #page {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-content: space-between;
-        }
-        
-        .underline {
-            height: 4px;
-            background: #ff5200;
-            width: 5rem;
-            margin: auto;
-            margin-top: 8px;
-        }
-        
-        #page header {
-            width: 100%;
-            position: relative;
-            display: block;
-            height: 25rem;
-            clear: both;
-        }
-        
-        header #header-bg {
-            width: 100%;
-            background: url("headerbg.gif");
-            background-size: cover;
-            clip-path: polygon(100% 0%, 100% 25%, 50% 85%, 0% 25%, 0% 0%);
-            -webkit-clip-path: polygon(100% 0%, 100% 25%, 50% 85%, 0% 25%, 0% 0%);
-            -ms-clip-path: polygon(100% 0%, 100% 25%, 50% 85%, 0% 25%, 0% 0%);
-            -moz-clip-path: polygon(100% 0%, 100% 25%, 50% 85%, 0% 25%, 0% 0%);
-            -o-clip-path: polygon(100% 0%, 100% 25%, 50% 85%, 0% 25%, 0% 0%);
-            height: 15rem;
-        }
-        
-        header #header-fg {
-            width: 100%;
-            display: flex;
-            padding: 1%;
-            color: whitesmoke;
-            align-items: flex-start;
-            justify-content: space-between;
-            display: -webkit-flex;
-            height: inherit;
-            background: rgba(255, 82, 0, 0.9);
-            clip-path: polygon(100% 0%, 100% 20%, 50% 80%, 0% 20%, 0% 0%);
-            -webkit-clip-path: polygon(100% 0%, 100% 20%, 50% 80%, 0% 20%, 0% 0%);
-            -ms-clip-path: polygon(100% 0%, 100% 20%, 50% 80%, 0% 20%, 0% 0%);
-            -moz-clip-path: polygon(100% 0%, 100% 20%, 50% 80%, 0% 20%, 0% 0%);
-            -o-clip-path: polygon(100% 0%, 100% 20%, 50% 80%, 0% 20%, 0% 0%);
-        }
-        
-        #header-fg .logo {
-            font-family: "courier new", courier;
-            color: white;
-            font-weight: 500;
-            width: 50%;
-            padding-top: 7px;
-            margin-bottom: 10px;
-        }
-        
-        #header-fg .logo a img {
-            width: 100%;
-            height: 80%;
-        }
-        
-        #header-fg a {
-            text-decoration: none;
-            color: whitesmoke;
-        }
-        
-        #header-fg .hamburger {
-            width: auto;
-            cursor: pointer;
-            position: relative;
-            margin: 0.3rem 4%;
-        }
-        
-        .hamburger span {
-            position: relative;
-            margin-top: 0.4rem;
-            display: block;
-            transition: transform 0.5s ease-in-out;
-            width: 2.3rem;
-            height: 4px;
-            border-radius: 0.5rem;
-            background: whitesmoke;
-        }
-        
-        .hamburger span:nth-child(2) {
-            transition: all 0.5s ease-in-out;
-            width: 1.83rem;
-            margin-left: 0.4rem;
-        }
-        
-        .hamburger.open {
-            position: relative;
-            margin: 0.3rem 4%;
-            cursor: pointer;
-            padding-top: 19px
-        }
-        
-        .hamburger.open span {
-            transition: transform 0.5s ease-in-out;
-            -webkit-transition: transform 0.5s ease-in-out;
-            -o-transition: transform 0.5s ease-in-out;
-            -moz-transition: transform 0.5s ease-in-out;
-            width: 2.1rem;
-            height: 4px;
-            margin: -15%;
-        }
-        
-        .hamburger.open span:first-child {
-            transform: rotate(360deg);
-        }
-        
-        .hamburger.open span:nth-child(2) {
-            transition: all 0.5s ease-in-out;
-            display: none;
-        }
-        
-        .hamburger.open span:last-child {
-            transform: rotate(-360deg);
-        }
-        
-        #header #round-header-img {
-            width: 100%;
-            top: 7rem;
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            text-align: center;
-        }
-        
-        #round-header-img img {
-            height: 8.8rem;
-            width: 8.8rem;
-            border: 6px double #ff5200;
-            border-radius: 100%;
-            border-top-left-radius: 0%;
-            border-top-right-radius: 0%;
-        }
-        
-        #header #intro {
-            margin-top: 7%;
-            font-family: arial, helvetica;
-            font-variant: small-caps;
-            font-size: 1.5rem;
-            font-weight: 550;
-            text-align: center;
-        }
-        
-        #header #call-to-action {
-            text-align: center;
-            width: 100%;
-            display: none;
-            margin-top: 1.5rem;
-            position: absolute;
-        }
-        
-        #call-to-action button {
-            transition: all 0.5s ease-in-out;
-            outline: none;
-            color: black;
-            width: 14rem;
-            margin: 0 auto;
-            font-weight: 800;
-            font-size: 1.2rem;
-            padding: 0.4rem;
-            background: white;
-            border: 5px double #ff5200;
-        }
-        
-        #call-to-action button:hover {
-            background: #ff5200;
-            color: white;
-        }
-        
-        #header #drop-menu {
-            width: 15rem;
-            position: absolute;
-            display: none;
-            position: absolute;
-            top: 3rem;
-            font-size: 1.2rem;
-            list-style-type: none;
-            background-color: #ff5200;
-            color: white;
-            right: 1rem;
-        }
-        
-        #drop-menu li {
-            display: block;
-        }
-        
-        #drop-menu #dark-mode {
-            background: black;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 4%;
-            color: #09bf9e;
-        }
-        
-        #drop-menu li a {
-            transition: all 0.5s ease;
-            -webkit-transition: all 0.5s ease;
-            color: whitesmoke;
-            display: block;
-            padding: 5% 0 5% 8%;
-            text-decoration: none;
-            width: 100%;
-        }
-        
-        #drop-menu li a:hover {
-            background-color: floralwhite;
-            color: black;
-            outline: 1px solid black;
-            padding-left: 3rem;
-        }
-        
-        #page svg {
-            width: 100%;
-            display: block;
-        }
-        
-        #page #page-content {
-            background: #fff5f5;
-            width: 100%;
-        }
-        
-        #page-content .section {
-            padding: 1.5%;
-        }
-        
-        #page-content .section>h2 {
-            font-family: walto;
-            font-size: 2.5rem;
-            margin-bottom: 3.5rem;
-        }
-        
-        #page-content .about {
-            width: 100%;
-            text-align: center;
-            padding-top: 3%;
-            display: block;
-        }
-        
-        #page-content #about-pic {
-            text-align: center;
-            width: 100%;
-            float: left;
-            margin-bottom: 5%;
-        }
-        
-        .about #about-pic img {
-            max-width: 300px;
-            width: 100%;
-            height: 22rem;
-            border: 6px double #ff5200;
-        }
-        
-        #page-content .about-text {
-            float: right;
-            width: 100%;
-            padding: 1%;
-            font-size: 1.16rem;
-            text-align: justify;
-            line-height: 1.8;
-            word-wrap: break-word;
-            margin-bottom: 5rem;
-        }
-        
-        #page-content .skills {
-            width: 100%;
-            overflow: auto;
-            display: block;
-            padding: 1%;
-            text-align: center;
-        }
-        
-        .skills #skills-wrapper {
-            width: auto;
-            margin: auto;
-            text-align: center;
-        }
-        
-        #skills-wrapper .skill-bar {
-            height: 2rem;
-            margin-bottom: 3%;
-            width: 100%;
-            background: lightgray;
-        }
-        
-        .skill-name {
-            text-align: left;
-            font-size: 1.09rem;
-            font-variant: small-caps;
-            padding-left: 2%;
-            background: none;
-            height: inherit;
-            color: white;
-        }
-        
-        .skill-value {
-            transition: width 0.8s ease-in-out;
-            -webkit-transition: width 0.8s ease-in-out;
-            -moz-transition: width 0.8s ease-in-out;
-            -o-transition: width 0.8s ease-in-out;
-            animation: loadProgress 2s;
-            float: left;
-            background: #ff5200;
-            height: inherit;
-        }
-        
-        .skill-value.html {
-            width: 90%;
-        }
-        
-        .skill-value.css {
-            width: 83%;
-        }
-        
-        .skill-value.js {
-            width: 80%;
-        }
-        
-        .skill-value.jquery {
-            width: 67%;
-        }
-        
-        .skill-value.bootstrap {
-            width: 55%;
-        }
-        
-        .skill-value.ui {
-            width: 75%;
-        }
-        
-        .skill-value.illustration {
-            width: 55%;
-        }
-        
-        .skill-value.vector {
-            width: 45%;
-        }
-        
-        .skill-percent {
-            overflow: hidden;
-            float: right;
-            padding-top: 1%;
-            font-size: 1.05rem;
-            font-variant: small-caps;
-            width: 10%;
-            text-align: center;
-            vertical-align: middle;
-        }
-        
-        #page-content .projects {
-            width: 100%;
-            text-align: center;
-            margin-top: 3.5rem
-        }
-        
-        .projects article {
-            box-shadow: 2px 2px 10px 1px black;
-            background: #ff5200;
-            margin-bottom: 5rem;
-            display: block;
-            align-items: center;
-            justify-content: space-evenly;
-        }
-        
-        .projects article .more-info {
-            position: absolute;
-            width: 0%;
-            height: 100%;
-            overflow: hidden;
-            cursor: default;
-            z-index: 999;
-            transition: all 0.6s ease-in-out;
-            background: #ff5200;
-            opacity: 0.9;
-            color: white;
-        }
-        
-        .more-info .close-btn {
-            text-align: right;
-            font-size: 1.6rem;
-            padding-right: 4%;
-            margin-bottom: 10%;
-            cursor: pointer;
-        }
-        
-        .more-info .languages {
-            color: black;
-        }
-        
-        .more-info span {
-            background: transparent;
-            line-height: 3;
-            padding: 1.9%;
-            font-variant: small-caps;
-            font-weight: 700;
-            border: 2px solid white;
-        }
-        
-        @media screen and (min-width: 1200px) {
-            .projects figcaption.project-name {
-                overflow: auto;
-                top: -3rem;
-                background: whitesmoke;
-                cursor: default;
-                text-align: center;
-                font-family: impact;
-                font-size: 1.8rem;
-            }
-            .projects article:hover figcaption.project-name {
-                top: 1.5rem;
-            }
-            .projects article:hover img {
-                opacity: 0.5;
-            }
-            .projects article:hover figcaption.learn-more {
-                bottom: 1.5rem
-            }
-        }
-        
-        .projects figure {
-            cursor: pointer;
-            transition: all 0.6s ease-in-out;
-            display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            outline: 1px solid black;
-            justify-content: space-around;
-            overflow: hidden;
-        }
-        
-        .projects article figcaption {
-            position: absolute;
-            z-index: 99;
-            text-align: center;
-            transition: all 0.5s ease-in-out;
-        }
-        
-        .projects figcaption.project-name {
-            overflow: auto;
-            top: 0.6rem;
-            opacity: 0.88;
-            background: whitesmoke;
-            cursor: default;
-            text-align: center;
-            font-family: impact;
-            font-size: 1.8rem;
-        }
-        
-        .projects figure img {
-            transition: all 0.5s ease-in-out;
-            height: 100%;
-            width: 100%;
-        }
-        
-        .projects figure img:hover {
-            opacity: 0.2;
-        }
-        
-        .projects figcaption.learn-more {
-            bottom: 14rem;
-            background: #ff5200;
-            opacity: 0.94;
-        }
-        
-        .learn-more button {
-            width: auto;
-            padding: 0.4rem 3rem;
-            background: none;
-            border: 2px solid white;
-            font-weight: 700;
-            transition: all 0.5s ease-in-out;
-        }
-        
-        .learn-more button:hover {
-            background-color: #ff5200;
-            color: whitesmoke;
-            border-color: #ff5200;
-        }
-        
-        .projects article a {
-            width: 100%;
-        }
-        
-        .projects article .view-project {
-            padding: 0.4rem 1.9rem;
-            transition: all 0.5s ease-in-out;
-            margin: 1% 0;
-            background: white;
-            font-weight: 700;
-            border: 1px solid #ff5200;
-        }
-        
-        article button.view-project:hover {
-            background-color: #ff5200;
-            border: 1px solid white;
-        }
-        
-        article .project-info {
-            height: auto;
-            color: #ddd;
-            width: 100%;
-            position: relative;
-            z-index: 9999;
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .design-projects {
-            padding: 2%;
-            display: block;
-            text-align: center;
-        }
-        
-        .design-projects h3 {
-            text-align: center;
-        }
-        
-        .design-projects .design-wrapper {
-            margin: 5% auto;
-            border: 6px double #ff5200;
-            display: inline-block;
-            width: 100%;
-            height: 300px;
-            box-shadow: 1px 1px 10px 2px black;
-        }
-        
-        .design-projects .design-wrapper img {
-            width: 100%;
-            height: 100%;
-        }
-        
-        #page-content .myBlog {
-            width: 100%;
-            overflow: auto;
-            display: block;
-            text-align: center;
-            margin-top: 5rem;
-        }
-        
-        .myBlog #button-wrap {
-            margin-top: 1rem;
-        }
-        
-        #button-wrap button {
-            transition: all 0.5s ease-in-out;
-            width: 10rem;
-            padding: 1%;
-            font-weight: 800;
-            background: inherit;
-            border: 2px solid #ff5200;
-            outline: none;
-        }
-        
-        #button-wrap button:hover {
-            background: #ff5200;
-            color: White;
-        }
-        
-        #page-content #contact {
-            background: #ff5200;
-            width: 100%;
-            text-align: center;
-            padding-top: 12rem;
-            color: white;
-            font-family: inherit;
-            clip-path: polygon(0% 0%, 50% 8rem, 100% 0%, 100% 100%, 0% 100%);
-        }
-        
-        #contact form {
-            width: 95%;
-            margin: auto;
-            margin-top: 8%;
-        }
-        
-        #contact form input {
-            transition: all 0.6s ease-in;
-            width: 100%;
-            padding: 0.9%;
-            margin-bottom: 2.5%;
-            border: none;
-            color: white;
-            font-family: arial;
-            outline-color: white;
-            background: #ff6a00;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
-        }
-        
-        #contact form ::placeholder {
-            color: lightgrey;
-            font-family: candara
-        }
-        
-        #contact form ::-webkit-input-placeholder {
-            color: lightgrey;
-            font-family: candara
-        }
-        
-        #contact form ::-ms-input-placeholder {
-            color: lightgrey;
-            font-family: candara
-        }
-        
-        #contact form textarea {
-            transition: all 0.6s ease-in;
-            background: #ff6a00;
-            border: none;
-            color: white;
-            height: 7rem;
-            font-size: 1.2rem;
-            font-family: arial;
-            border-radius: 0px;
-            outline-color: white;
-            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.7);
-        }
-        
-        #contact input,
-        #contact textarea:focus {
-            box-shadow: none;
-        }
-        
-        #contact form #success {
-            background: #18b918;
-            color: #c7f302;
-            font-size: 1rem;
-            height: auto;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            -webkit-transition: all 0.5s ease;
-        }
-        
-        #contact #success span {
-            float: right;
-            color: white;
-            margin-right: 2%;
-            cursor: pointer;
-        }
-        
-        #contact form button[type='submit'] {
-            background: white;
-            outline: none;
-            border: none;
-            padding: 1.5% 9%;
-            box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.7);
-            margin-top: 3%;
-        }
-        
-        #contact form button[type='submit']:active {
-            background: transparent;
-            color: white;
-            border: 1px solid white;
-            box-shadow: none;
-        }
-        
-        #contact #or-txt {
-            font-size: 1.2rem;
-            position: relative;
-            margin: 2rem auto;
-            width: 60px;
-            color: rgb(58, 54, 54);
-        }
-        
-        #contact #or-txt::before {
-            content: " ";
-            width: 4rem;
-            height: 4px;
-            background-color: rgb(58, 54, 54);
-            position: absolute;
-            top: 15px;
-            left: 90%;
-        }
-        
-        #contact #or-txt::after {
-            content: '';
-            width: 4rem;
-            height: 4px;
-            background-color: rgb(58, 54, 54);
-            position: absolute;
-            top: 15px;
-            right: 90%;
-        }
-        
-        #contact .contact-address {
-            font-size: 1.1rem;
-            font-family: 'Trebuchet MS';
-            margin-bottom: 1%;
-            letter-spacing: 1px;
-        }
-        
-        .contact-address a {
-            color: #f3e1e1;
-            text-decoration: none;
-        }
-        
-        .contact-address a:hover::before {
-            content: ">> ";
-            font-family: walto;
-        }
-        
-        #contact #socialize {
-            width: 100%;
-            margin-top: 4rem;
-        }
-        
-        #social-wrap {
-            margin-top: 1.5rem;
-        }
-        
-        #social-wrap .social {
-            display: inline-block;
-            width: auto;
-            margin: 2%;
-        }
-        
-        .social img {
-            width: 2.5rem;
-            transition: all 0.8s ease-in-out;
-            -webkit-transition: all 0.8s ease-in-out;
-            -o-transition: all 0.8s ease-in-out;
-            -ms-transition: all 0.8s ease-in-out;
-            -moz-transition: all 0.8s ease-in-out;
-        }
-        
-        .social img:hover {
-            transform: rotateZ(360deg);
-            -webkit-transform: rotateZ(360deg);
-            -o-transform: rotateZ(360deg);
-            -ms-transform: rotateZ(360deg);
-            -moz-transform: rotateZ(360deg);
-        }
-        /*===============================================================================================*/
-        
-        @media screen and (max-width: 320px) {
-            .design-projects .design-wrapper {
-                height: 200px;
-            }
-        }
-        
-        @media screen and (min-width: 560px) {
-            #header-fg .logo img {
-                min-width: 9rem;
-                max-width: 12rem;
-            }
-            #header-fg .hamburger span {
-                width: 2.7rem;
-                height: 4px;
-            }
-            #header #drop-menu {
-                width: 21rem;
-            }
-            #header #round-header-img img {
-                width: 10rem;
-                height: 10rem;
-            }
-            #header #intro {
-                font-size: 1.8rem;
-            }
-            #header #call-to-action button {
-                padding: 0.7rem;
-                font-size: 1.3;
-            }
-            .learn-more button {
-                padding: 0.7rem 4rem
-            }
-            .projects figcaption.project-name {
-                font-size: 2.2rem;
-            }
-            .design-projects {
-                padding: 0;
-                display: block;
-                text-align: center;
-            }
-            .design-projects .design-wrapper {
-                margin: 5% 1%;
-                border: 6px double #ff5200;
-                display: inline-block;
-                width: 400px;
-                height: 300px;
-            }
-            .design-projects .design-wrapper img {
-                width: 100%;
-                height: 100%;
-            }
-            #contact form {
-                width: 80%;
-            }
-            .hamburger span:nth-child(2) {
-                margin-left: 0;
-            }
-        }
-        
-        @media screen and (min-width:730px) {
-            #page-content>.section {
-                padding: 4%;
-            }
-            #page-content #contact {
-                padding: 12rem 10% 0 10%;
-            }
-            #page-content #skills-wrapper {
-                width: 70%;
-            }
-        }
-        
-        @media screen and (min-width: 920px) {
-            #header-fg .logo {
-                margin: -8px 4rem;
-            }
-            #header-fg .logo a img {
-                height: 45px;
-                max-width: 15rem
-            }
-            #header-fg .hamburger span {
-                height: 5px;
-                width: 3rem;
-            }
-            #header #round-header-img img {
-                width: 11rem;
-                height: 12rem;
-            }
-            #page-content .about-text {
-                width: 62%;
-                font-size: 1.2rem;
-                padding-top: 0;
-            }
-            #page-content #about-pic {
-                width: 38%;
-            }
-            .about #about-pic img {
-                height: 25rem;
-                border: none;
-                box-shadow: 0 0 10px 3px black;
-            }
-            .projects article {
-                display: flex;
-                max-height: 18rem;
-                overflow: hidden;
-            }
-            .projects article figure {
-                margin: 0;
-            }
-            .project-info>div {
-                overflow: auto;
-            }
-            .project-info>a {
-                margin-top: 5%;
-            }
-            .project-info>a .view-project {
-                padding: 2% 8%;
-            }
-            .projects figcaption.learn-more {
-                bottom: 2rem;
-            }
-            .projects article .more-info {
-                max-width: 50%;
-                padding-top: 3rem;
-                height: 50rem;
-            }
-            .more-info span {
-                padding: 2%;
-            }
-            .more-info .close-btn {
-                margin-bottom: 5%;
-            }
-        }
-    </style>
 </head>
 
-<body class="orange">
+<body>
     <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+            <p class="browse happy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
     <div id="page">
         <header id="header">
-            <div id="header-bg" data-aos="zoom-in">
+            <div id="header-bg" class="animated rubberBand">
                 <div id="header-fg" data-aos="zoom-in" data-aos-delay="600">
                     <div class="logo lead">
                         <a href="#"></a>
@@ -1003,8 +55,8 @@
                     </div>
                 </div>
             </div>
-            <div id="round-header-img">
-                <img src="myimg/me8.jpg" alt="A Pic Of Me" data-aos="fade-up">
+            <div id="round-header-img" class="animated flipInX">
+                <img src="images/my_images/me2.jpg" alt="A Pic Of Me">
             </div>
             <div id="intro">
                 <div id="intro-line1"></div>
@@ -1019,7 +71,7 @@
                 <li><a href="#projects">My Projects</a></li>
                 <li><a href="#myBlog">My Blog</a></li>
                 <li><a href="#">Hire Me</a></li>
-                <li id="dark-mode">Dark Mode &ensp;<i onclick='toggleDarkMode(this)' class="fas fa-toggle-off fa-2x"></i></li>
+                <li id="dark-mode">Dark Mode <i onclick='toggleDarkMode(this)' class="fas fa-toggle-off fa-2x"></i></li>
             </ul>
         </header>
 
@@ -1030,10 +82,10 @@
         <div id="page-content">
             <div class="section about" id="about">
                 <h2>Who I Am
-                    <div class="underline"></div>
+                    <div class="underline" data-aos="fade-right"></div>
                 </h2>
-                <div id="about-pic">
-                    <img src="myimg/me1.jpg">
+                <div id="about-pic" data-aos="rubber">
+                    <img src="images/my_images/me1.jpg" alt="Another Pic Of Myself">
                 </div>
                 <div class="about-text lead">
                     My Names are Ugwu Obiora Stanley, am a self-taught front-end web developer, blogger, and a visual/graphic designer from Enugu state, Nigeria. Am a college graduate of computer craft studies, I enjoy solving problems, especially when its related to programming,
@@ -1044,38 +96,38 @@
             <!--ABOUT ME-->
             <div class="section skills" id="skills">
                 <h2>MY Skills
-                    <div class="underline"></div>
+                    <div class="underline" data-aos="fade-right"></div>
                 </h2>
                 <div id="skills-wrapper">
-                    <div class="skill-bar html">
-                        <div class="skill-value html aimated bounceInDown">
+                    <div class="skill-bar html" data-aos="shaky">
+                        <div class="skill-value html">
                             <div class="skill-name lead">HTML</div>
                         </div>
                         <span class="skill-percent lead">90%</span>
                     </div>
                     <!--HTML-->
-                    <div class="skill-bar css">
+                    <div class="skill-bar css" data-aos="shaky">
                         <div class="skill-value css">
                             <div class="skill-name lead">CSS</div>
                         </div>
                         <span class="skill-percent lead">83%</span>
                     </div>
                     <!--CSS-->
-                    <div class="skill-bar js">
+                    <div class="skill-bar js" data-aos="shaky">
                         <div class="skill-value js">
                             <div class="skill-name lead">JAVASCRIPT</div>
                         </div>
                         <span class="skill-percent lead">80%</span>
                     </div>
                     <!--JS-->
-                    <div class="skill-bar bootstrap">
+                    <div class="skill-bar bootstrap" data-aos="shaky">
                         <div class="skill-value bootstrap">
                             <div class="skill-name lead">BOOTSTRAP</div>
                         </div>
                         <span class="skill-percent lead">55%</span>
                     </div>
                     <!--BOOTSTRAP-->
-                    <div class="skill-bar jquery">
+                    <div class="skill-bar jquery" data-aos="shaky">
                         <div class="skill-value jquery">
                             <div class="skill-name lead">JQUERY</div>
                         </div>
@@ -1083,21 +135,21 @@
                     </div>
                     <!--JQUERY-->
 
-                    <div class="skill-bar ui">
+                    <div class="skill-bar ui" data-aos="shaky">
                         <div class="skill-value ui">
                             <div class="skill-name lead">UI DESIGN</div>
                         </div>
                         <span class="skill-percent lead">75%</span>
                     </div>
                     <!--UI-->
-                    <div class="skill-bar illustration">
+                    <div class="skill-bar illustration" data-aos="shaky">
                         <div class="skill-value illustration">
                             <div class="skill-name lead">ILLUSTRATION</div>
                         </div>
                         <span class="skill-percent lead">55%</span>
                     </div>
                     <!--ILLUSTRATION-->
-                    <div class="skill-bar vector">
+                    <div class="skill-bar vector" data-aos="shaky">
                         <div class="skill-value vector">
                             <div class="skill-name lead">VECTOR ART</div>
                         </div>
@@ -1109,10 +161,10 @@
             <!--SKILLS-->
             <div class="section projects" id="projects">
                 <h2>MY Projects
-                    <div class="underline"></div>
+                    <div class="underline" data-aos="fade-right"></div>
                 </h2>
                 <!--PhoneBook-->
-                <article class="project phonebook" data-aos="flip-right">
+                <article class="project phonebook" data-aos="fade-up" data-aos-once="true">
 
                     <figure>
                         <div class="more-info">
@@ -1123,7 +175,7 @@
                             </div>
                         </div>
                         <figcaption class="lead project-name"> PhoneBook Lite V1.0 </figcaption>
-                        <img src="projects-images/p1.jpg">
+                        <img src="images/code_project_images/project2.jpg">
                         <figcaption class="lead learn-more"><button onclick="document.querySelector('.phonebook .more-info').style.width = '100%';">Learn More</button></figcaption>
                     </figure>
                     <section class="project-info">
@@ -1137,7 +189,7 @@
                 </article>
 
                 <!--Color Aid-->
-                <article class="project color-aid" data-aos="flip-right">
+                <article class="project color-aid" data-aos="fade-up" data-aos-once="true">
 
                     <figure>
                         <div class="more-info">
@@ -1148,7 +200,7 @@
                             </div>
                         </div>
                         <figcaption class="lead project-name"> Color Aid V.1.0</figcaption>
-                        <img src="projects-images/p2.jpg">
+                        <img src="images/code_project_images/project1.jpg">
                         <figcaption class="lead learn-more"><button onclick="document.querySelector('.color-aid .more-info').style.width = '100%';">Learn
                                 More</button></figcaption>
                     </figure>
@@ -1165,30 +217,38 @@
             <!-- Design projects-->
             <div class="design-projects">
                 <h3>Design Projects
-                    <div class="underline"></div>
+                    <div class="underline" data-aos="fade-right"></div>
                 </h3><br/>
-                <div class="design-wrapper">
-                    <img src="imgs/1a95dae95ae1f6f1bf9a27173ff569c3.jpg">
-                </div>
                 <!--design 1-->
-                <div class="design-wrapper">
-                    <img src="imgs/290328.jpg">
+                <div class="design-wrapper" data-aos="flip-up">
+                    <img src="images/design_project_images/project1.png">
                 </div>
                 <!--design 2-->
-                <div class="design-wrapper">
-                    <img src="imgs/initial.png">
+                <div class="design-wrapper" data-aos="flip-up">
+                    <img src="images/design_project_images/project2.png">
                 </div>
                 <!--design 3-->
-                <div class="design-wrapper">
-                    <img src="imgs/scifi-android-robot-wallpaper-1600x900-12601_47.jpg">
+                <div class="design-wrapper" data-aos="flip-up">
+                    <img src="images/design_project_images/project3.png">
                 </div>
                 <!--design 4-->
+                <div class="design-wrapper" data-aos="flip-up">
+                    <img src="images/design_project_images/project4.jpg">
+                </div>
+                <!--design 5-->
+                <div class="design-wrapper" data-aos="flip-up">
+                    <img src="images/design_project_images/project5.png">
+                </div>
+                <!--design 6-->
+                <div class="design-wrapper" data-aos="flip-up">
+                    <img src="images/design_project_images/project6.png">
+                </div>
             </div>
             <!--Design Projects-->
 
             <div class="section myBlog" id="myBlog">
                 <h2>MY Blog
-                    <div class="underline"></div>
+                    <div class="underline" data-aos="fade-right"></div>
                 </h2>
                 <div class="lead">Be quite sure to checkout and subscribe to my blog for tutorials, opinions, walk-throughs, and videos on different programming languages, and other tech related topics.</div>
                 <div id="button-wrap">
@@ -1199,11 +259,11 @@
 
             <div id="contact">
                 <h2>CONTACT ME
-                    <div class="underline" style="background:white"></div>
+                    <div class="underline" data-aos="fade-right"></div>
                 </h2>
-                <form accept-charset="utf-8" autocomplete="on" id="contact-form" class="lead" action="https://formspree.io/xgezaerg" method="POST" enctype="multipart/form-data">
+                <form accept-charset="utf-8" autocomplete="on" id="contact-form" class="lead" action="https://submit-form.com/9zSvgu8fWYtc2mhYEij47" method="POST" enctype="multipart/form-data" target="_blank">
                     <input type="text" minlength="2" required="required" name="name" placeholder="Name">
-                    <input type="text" minlength="2" required="required" name="email" placeholder="Email Address">
+                    <input type="email" minlength="2" required="required" name="email" placeholder="Email Address" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
                     <textarea class="form-control lead" placeholder="Your Message" type="text" name="message" required=""></textarea>
                     <div id="success">Message Sent Successfully. Thanks <span onclick="this.parentElement.style.height = '0px'">X</span></div>
                     <button type="submit">SUBMIT</button>
@@ -1216,273 +276,40 @@
 
                 <div id="socialize">
                     <h4 style="color: black">LET'S SOCIALIZE ON
-                        <div class="underline" style="background: black;"></div>
+                        <div class="underline" data-aos="fade-right" style="background: black;"></div>
                     </h4>
                     <div id="social-wrap">
                         <div class="social fb">
-                            <a href=""><img src="social icons/facebook.png" /></a>
+                            <a href="https://facebook.com/StanleyUgwu01/" target="_blank"><img src="images/social_icons/facebook.png" /></a>
                         </div>
                         <div class="social tw">
-                            <a href=""><img src="social icons/twitter.png" /></a>
+                            <a href="https://mobile.twitter.com/Stanley55505427/" target="_blank"><img src="images/social_icons/twitter.png" /></a>
                         </div>
                         <div class="social ln">
-                            <a href=""><img src="social icons/linkedin.png" /></a>
+                            <a href="https://www.linkedin.com/in/stanley-ugwu-268597173/" target="_blank"><img src="images/social_icons/linkedin.png" /></a>
                         </div>
                         <div class="social pn">
-                            <a href=""><img src="social icons/pinterest.png" /></a>
+                            <a href="https://www.pinterest.com/stanleyugwu2018/" target="_blank"><img src="images/social_icons/pinterest.png" /></a>
                         </div>
                         <div class="social sk">
-                            <a href=""><img src="social icons/skype.png" /></a>
+                            <a href="live:.cid.94b2ee4702ce4cca/" target="_blank"><img src="images/social_icons/skype.png" /></a>
                         </div>
                         <div class="social in">
-                            <a href=""><img src="social icons/instagram.png" /></a>
+                            <a href="https://www.instagram.com/dev_shurr/" target="_blank"><img src="images/social_icons/instagram.png" /></a>
                         </div>
                         <div class="social bl">
-                            <a href=""><img src="social icons/bloggr.png" /></a>
+                            <a href="https://github.com/stanley19/" target="_blank"><img src="images/social_icons/github.png" /></a>
                         </div>
                         <div class="social em">
-                            <a href=""><img src="social icons/email.png" /></a>
+                            <a href="mailto:stanleugwu2018@gmail.com" target="_blank"><img src="images/social_icons/email.png" /></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script async defer>
-        var i = 0;
-        var name = "print(Dev.Stan)";
-
-        function typeInitial() {
-            if (i < name.length) {
-                document.querySelector(".logo a").innerHTML += name[i];
-                i++;
-                setTimeout(typeInitial, 150)
-            }
-            if (i == name.length) {
-                setTimeout(function() {
-                    var logo = document.querySelector("#header-fg .logo a");
-                    logo.style.padding = "0 0 0 2%";
-                    logo.innerHTML = "<img src='imgs/initial.png' id='initial'>";
-                }, 1000)
-            }
-        }
-        setTimeout(typeInitial, 10000); /*Auto start typing*/
-
-        /*type intro-line1*/
-        var c = 0;
-        var intro1 = "hello!, i'm stanley.";
-
-        function typeIntro1() {
-            if (c < intro1.length) {
-                document.querySelector("#intro-line1").innerHTML += intro1[c];
-                c++;
-                setTimeout(typeIntro1, 100)
-            }
-        }
-        setTimeout(typeIntro1, 2000) /*Auto start typing*/
-            /*intro-line1 typing ends*/
-
-        /*type intro-line2*/
-        var x = 0;
-        var intro2 = "i'm a front-end web developer";
-
-        function typeIntro2() {
-            if (x < intro2.length) {
-                document.querySelector("#intro-line2").innerHTML += intro2[x];
-                x++;
-                setTimeout(typeIntro2, 100)
-            }
-        }
-        setTimeout(typeIntro2, 5000) /*Auto start typing*/
-            /*intro-line2 typing ends*/
-
-        /*Auto show Call-To-Action*/
-        setTimeout(function() {
-            $("#call-to-action").fadeIn(1500)
-        }, 8000)
-
-
-        /*Show/hide dropdown menu*/
-        function toggleMenu() {
-            $(".hamburger").toggleClass("open");
-            $("#drop-menu").slideToggle(700);
-        }
-        toggleMenu()
-
-        /*Auto Remove header height*/
-        setTimeout(() => {
-            $("header").css("height", "auto")
-        }, 10000);
-
-        /**Dynamically Animate all title underlines **/
-        var allUnderlines = document.querySelectorAll("h2 .underline")
-        for (underline of allUnderlines) {
-            underline.parentNode.setAttribute("data-aos", "zoom-in");
-            underline.setAttribute("data-aos", "fade-right")
-        }
-
-        /**Dynamically animate all design-projects**/
-        var allDesigns = document.querySelectorAll(".design-projects .design-wrapper");
-        for (design of allDesigns) {
-            design.setAttribute("data-aos", "fade-up")
-        }
-
-        /* add listener on input elements and tweak properties when value > 0 */
-        var inputs = document.querySelectorAll("#contact form textarea, #contact form input[type='text']");
-        for (input of inputs) {
-            input.onblur = function() {
-                if (this.value.length > 0) {
-                    this.style.background = 'white';
-                    this.style.color = 'black'
-                } else {
-                    this.style.background = '#ff6a00';
-                    this.style.color = 'white';
-                }
-            }
-        }
-
-        function toggleDarkMode(el) {
-            $(el).toggleClass("fa-toggle-on fa-x2");
-            $("body").toggleClass("dark");
-            $("#header-fg").css({
-                "background": "#09bf9ecc"
-            });
-            $("#round-header-img img").css({
-                'border-color': "#09bf9e"
-            });
-            $("#intro, #drop-menu li a").css({
-                "color": "#09bf9e"
-            });
-            $("#drop-menu").css({
-                'background': 'black',
-                'border': '1px solid #09bf9e'
-            })
-            $("#drop-menu li").css({
-                'border-bottom': '1px solid grey'
-            });
-            $("#call-to-action button").css({
-                'border-color': '#09bf9e',
-                'background': 'transparent',
-                'color': 'lightgrey'
-            });
-            var ctaBtn = document.querySelector("#call-to-action button");
-            ctaBtn.onmouseenter = () => {
-                ctaBtn.style.background = '#09bf9e';
-                ctaBtn.style.color = 'black';
-            }
-            ctaBtn.onmouseleave = () => {
-                ctaBtn.style.background = 'black';
-                ctaBtn.style.color = 'lightgrey';
-            }
-            $("#line").css({
-                'fill': 'black',
-            })
-            $("#line").attr("points", '0,0 50,75 100,0 100')
-            $("#page-content").css("background", "black")
-            $(".section>h2").css('color', 'lightgrey')
-            $(".underline").css("background", "#09bf9e")
-            $(".about-text").css("color", "darkgrey")
-            $("#about-pic img").css({
-                "border-color": "#09bf9e",
-                'box-shadow': '0 0 9px 4px #09bf9e'
-            })
-            $(".skill-value").css('background', '#09bf9e')
-            $('.skill-name').css('color', 'black')
-            $('.projects .learn-more, .learn-more button').css({
-                'background': '#09bf9e',
-                'border': '1px solid #333'
-            })
-            $('.projects article').css({
-                'background': '#09bf9e',
-                'box-shadow': '0 0 9px 2px #09bf9e'
-            })
-            $('.projects .project-info').css('color', 'black')
-            $('.projects article .view-project').css('border-color', '#333')
-            var viewProjectBtn = document.querySelector(".projects article .view-project");
-            viewProjectBtn.onmouseenter = () => {
-                viewProjectBtn.style.background = '#09bf9e';
-            }
-            viewProjectBtn.onmouseleave = () => {
-                viewProjectBtn.style.background = 'white';
-            }
-            $('.design-projects>h3').css('color', 'white')
-            $('.design-projects .underline, .projects .more-info').css('background', '#09bf9e')
-            $('.design-wrapper').css({
-                'border-color': '#09bf9e',
-                'box-shadow': '1px 1px 10px 2px #09bf9e'
-            })
-            $('#myBlog div.lead').css('color', 'darkgrey')
-            $('#myBlog #button-wrap button').css({
-                'border-color': '#09bf9e',
-                'color': 'darkgrey'
-            })
-            var blogBtn = document.querySelector("#myBlog #button-wrap button");
-            blogBtn.onmouseenter = () => {
-                blogBtn.style.background = '#09bf9e';
-                blogBtn.style.color = 'black';
-            }
-            blogBtn.onmouseleave = () => {
-                blogBtn.style.background = 'transparent';
-                blogBtn.style.color = 'darkgrey'
-            }
-            $('#contact').css('background', '#09bf9e')
-            $('#contact h2 .underline, #contact form input, #contact textarea').css('background', 'black')
-            $('#contact #success').css('background', '#068406')
-            $('#contact #socialize h4 .underline').css('background', 'black')
-                /* add listener on input elements and tweak properties when value > 0 */
-            var inputs = document.querySelectorAll("#contact form textarea, #contact form input[type='text']");
-            for (input of inputs) {
-                input.onblur = function() {
-                    if (this.value.length > 0) {
-                        this.style.background = 'white';
-                        this.style.color = 'black'
-                    } else {
-                        this.style.background = '#09bf9e';
-                        this.style.color = 'white';
-                    }
-                }
-            }
-            /* add listener on input elements and tweak properties when value > 0 */
-            var inputs = document.querySelectorAll("#contact form textarea, #contact form input[type='text']");
-            for (input of inputs) {
-                input.onblur = function() {
-                    if (this.value.length > 0) {
-                        this.style.background = 'white';
-                        this.style.color = 'black'
-                    } else {
-                        this.style.background = 'black';
-                        this.style.color = 'white';
-                    }
-                }
-            }
-        }
-
-        /**observer API to know when skills section gets into view**/
-        var observer = new IntersectionObserver(function(entries) {
-            if (entries[0].isIntersecting === true) {
-                $(".skill-value").css({
-                    animation: "loadProgress 2s ease-in-out"
-                })
-            } else if (entries[0].isIntersecting === false) {
-                $(".skill-value").css({
-                    animation: "none"
-                })
-            }
-        }, {
-            threshold: [1]
-        })
-        observer.observe(document.querySelector(".skill-value"));
-    </script>
-    <!--Initializing AOS.js library-->
-    <script>
-        AOS.init({
-            offset: 200,
-            duration: 1000,
-            easing: 'ease-in-out',
-            delay: 200,
-        });
-    </script>
+    <!--aos library initialization and element observer script-->
+    <script src="aos_observer.js"></script>
 </body>
 
 </html>
