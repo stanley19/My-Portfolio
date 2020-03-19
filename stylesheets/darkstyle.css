@@ -38,8 +38,20 @@
  
  body.dark #drop-menu #dark-mode {
      background: black;
+     display: -webkit-box;
+     display: -webkit-flex;
+     display: -moz-box;
+     display: -ms-flexbox;
      display: flex;
+     -webkit-box-pack: justify;
+     -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+     -ms-flex-pack: justify;
      justify-content: space-between;
+     -webkit-box-align: center;
+     -webkit-align-items: center;
+     -moz-box-align: center;
+     -ms-flex-align: center;
      align-items: center;
      padding: 0 4%;
      color: #09bf9e;
@@ -78,6 +90,8 @@
  
  body.dark #about-pic img {
      border-color: #09bf9e;
+     -webkit-box-shadow: 0 0 8px 2px #09bf9e;
+     -moz-box-shadow: 0 0 8px 2px #09bf9e;
      box-shadow: 0 0 8px 2px #09bf9e;
  }
  
@@ -98,6 +112,8 @@
  
  body.dark .projects article {
      background: #09bf9e;
+     -webkit-box-shadow: 0 0 9px 2px #09bf9e;
+     -moz-box-shadow: 0 0 9px 2px #09bf9e;
      box-shadow: 0 0 9px 2px #09bf9e;
  }
  
@@ -120,6 +136,8 @@
  
  body.dark .design-wrapper {
      border-color: #09bf9e;
+     -webkit-box-shadow: 1px 1px 10px 2px #09bf9e;
+     -moz-box-shadow: 1px 1px 10px 2px #09bf9e;
      box-shadow: 1px 1px 10px 2px #09bf9e;
  }
  
